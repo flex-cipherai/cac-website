@@ -252,13 +252,15 @@ img { max-width: 100%; height: auto; display: block; }
 
 .hero-buttons { display: flex; gap: 16px; }
 
-.hero-image { flex: 1; min-width: 0; }
+.hero-image { flex: 1.15; min-width: 0; }
 
 /* Hero image */
 .hero-img {
   width: 100%;
   border-radius: 12px;
   box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  object-fit: cover;
+  aspect-ratio: 16/10;
 }
 
 
