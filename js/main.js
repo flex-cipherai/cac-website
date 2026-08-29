@@ -4,6 +4,19 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
+  // --- Sticky Nav Scroll Shadow ---
+  var navWrapper = document.querySelector('.nav-wrapper');
+  if (navWrapper) {
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 10) {
+        navWrapper.classList.add('scrolled');
+      } else {
+        navWrapper.classList.remove('scrolled');
+      }
+    }, { passive: true });
+  }
+
+
   // --- Mobile Navigation Toggle ---
   var hamburger = document.querySelector('.nav-hamburger');
   var navLinks = document.querySelector('.nav-links');
