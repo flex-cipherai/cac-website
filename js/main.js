@@ -1,5 +1,5 @@
 /* ============================================
-   CIPHER AI CONSULTANTS — Main JS
+   SDFM GROUP LIMITED — Main JS
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', function () {
