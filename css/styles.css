@@ -562,6 +562,24 @@ img { max-width: 100%; height: auto; display: block; }
   position: absolute; left: 0;
 }
 
+.why-it-worked {
+  display: flex; flex-direction: column; gap: 32px;
+}
+.why-item {
+  padding: 32px; background: var(--bg-gray); border-radius: 12px;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.why-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+.why-item h3 {
+  font-size: 20px; font-weight: 700; margin-bottom: 12px; color: var(--charcoal);
+}
+.why-item p {
+  font-size: 15px; line-height: 1.7; color: var(--text-body);
+}
+
 
 /* --- Projects Page --- */
 .projects-header {
@@ -735,6 +753,8 @@ img { max-width: 100%; height: auto; display: block; }
   .module-card { padding: 28px; }
   .module-card h3 { font-size: 18px; }
   .back-link { font-size: 13px; margin-bottom: 24px; min-height: 44px; display: inline-flex; align-items: center; }
+  .why-item { padding: 24px; }
+  .why-item h3 { font-size: 18px; }
 
   /* Projects page */
   .projects-header { padding: 40px var(--side-pad) 0; }
