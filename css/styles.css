@@ -580,6 +580,28 @@ img { max-width: 100%; height: auto; display: block; }
   font-size: 15px; line-height: 1.7; color: var(--text-body);
 }
 
+.pipeline-stages {
+  display: flex; flex-direction: column; gap: 0;
+}
+.stage-item {
+  display: flex; align-items: flex-start; gap: 20px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--divider);
+}
+.stage-item:first-child { border-top: 1px solid var(--divider); }
+.stage-number {
+  width: 40px; height: 40px; min-width: 40px;
+  background: var(--red); color: var(--white);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-weight: 900; font-size: 16px; margin-top: 2px;
+}
+.stage-content h3 {
+  font-size: 18px; font-weight: 700; margin-bottom: 6px; color: var(--charcoal);
+}
+.stage-content p {
+  font-size: 15px; line-height: 1.7; color: var(--text-body);
+}
+
 
 /* --- Projects Page --- */
 .projects-header {
