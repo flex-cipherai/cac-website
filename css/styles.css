@@ -483,6 +483,12 @@ img { max-width: 100%; height: auto; display: block; }
 .footer-legal { font-size: 13px; color: rgba(255,255,255,0.4); }
 .footer-legal a { color: rgba(255,255,255,0.6); }
 .footer-legal a:hover { color: var(--white); }
+.footer-legal button {
+  background: none; border: none; padding: 0; margin: 0;
+  font-family: inherit; font-size: 13px; color: rgba(255,255,255,0.6);
+  cursor: pointer; transition: color var(--transition);
+}
+.footer-legal button:hover { color: var(--white); }
 
 .footer-social {
   display: flex; gap: 12px; margin-top: 4px;
