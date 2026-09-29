@@ -417,8 +417,6 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .project-arrow { font-size: 22px; color: var(--red); font-weight: 400; }
 
-.view-all-link { margin-top: 48px; text-align: center; }
-.view-all-link a { font-size: 15px; font-weight: 700; color: var(--red); letter-spacing: 0.5px; }
 
 
 /* --- FAQ Section --- */
@@ -610,23 +608,6 @@ img { max-width: 100%; height: auto; display: block; }
 .stage-content p {
   font-size: 15px; line-height: 1.7; color: var(--text-body);
 }
-
-
-/* --- Projects Page --- */
-.projects-header {
-  padding: 60px var(--side-pad) 0;
-  max-width: var(--nav-max); margin: 0 auto;
-}
-.projects-header .section-subtext { margin-bottom: 40px; }
-.projects-header .section-heading { margin-bottom: 16px; }
-
-.projects-list {
-  padding: 0 var(--side-pad) var(--section-pad);
-  max-width: var(--nav-max); margin: 0 auto;
-}
-
-.project-row.disabled { opacity: 0.35; cursor: default; }
-.project-row.disabled:hover { opacity: 0.35; }
 
 
 /* --- Legal / Privacy Policy Page --- */
@@ -838,7 +819,7 @@ img { max-width: 100%; height: auto; display: block; }
   .offer-list { font-size: 15px; }
   .offer-note { font-size: 14px; }
 
-  /* Projects - mobile layout */
+  /* Selected work - mobile layout */
   .project-row {
     flex-direction: column; align-items: flex-start;
     gap: 12px; padding: 28px 0;
@@ -882,9 +863,6 @@ img { max-width: 100%; height: auto; display: block; }
   .back-link { font-size: 13px; margin-bottom: 24px; min-height: 44px; display: inline-flex; align-items: center; }
   .why-item { padding: 24px; }
   .why-item h3 { font-size: 18px; }
-
-  /* Projects page */
-  .projects-header { padding: 40px var(--side-pad) 0; }
 
   /* Legal page */
   .legal-header { padding: 40px var(--side-pad) 24px; }
