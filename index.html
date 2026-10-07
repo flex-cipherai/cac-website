@@ -7,31 +7,16 @@
   <meta name="description" content="We design, build and deploy custom AI solutions tailored to how your business actually works. Book a free AI Gap Assessment today.">
   <meta property="og:title" content="SDFM Group Limited | Transforming Kenyan Businesses">
   <meta property="og:description" content="We design, build and deploy custom AI solutions tailored to how your business actually works.">
-  <meta property="og:image" content="assets/hero-dashboard.png">
+  <meta property="og:image" content="https://sdfmgroup.com/assets/hero-dashboard.png">
   <meta property="og:type" content="website">
+  <script>document.documentElement.classList.add('js');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" type="image/png" href="assets/logo.png">
 
-  <!-- Meta Pixel Code -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '2235159617264200');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=2235159617264200&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
+  <!-- Meta Pixel: loaded from js/cookie-consent.js only after the visitor accepts -->
 
   <!-- SDFM first-party analytics -->
   <script async src="https://spm.sdfmgroup.com/sdfm-tracker.js"
@@ -45,11 +30,8 @@
   <div class="nav-wrapper">
     <nav class="nav">
       <a href="index.html" class="nav-logo">
-        <img src="assets/logo.png" alt="SDFM Group Limited">
+        <img src="assets/logo.png" alt="SDFM Group Limited" width="110" height="44">
       </a>
-      <button class="nav-hamburger" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
       <ul class="nav-links">
         <li><a href="#how-it-works">HOW IT WORKS</a></li>
         <li><a href="https://spm.sdfmgroup.com/intake" class="nav-cta">BOOK A DISCOVERY CALL</a></li>
@@ -182,8 +164,8 @@
     <div class="container">
       <div class="eyebrow">THE OFFER</div>
       <h2 class="section-heading">See exactly where AI would make the biggest difference in your business.</h2>
-      <p class="section-subtext" style="margin:0 auto 20px;">Book a discovery call. We will conduct a full AI Gap Assessment of the department that needs it most, at no cost to you.</p>
-      <p class="section-subtext" style="margin:0 auto 20px;">You will receive:</p>
+      <p class="section-subtext">Book a discovery call. We will conduct a full AI Gap Assessment of the department that needs it most, at no cost to you.</p>
+      <p class="section-subtext">You will receive:</p>
       <ul class="offer-list">
         <li>The specific gaps in your current operations</li>
         <li>A recommended solution tailored to your workflows</li>
@@ -204,52 +186,72 @@
       <div class="faq-top-border"></div>
 
       <div class="faq-item open">
-        <button class="faq-question" aria-expanded="true">
-          <h3>How much does it cost?</h3>
-          <span class="faq-toggle">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>Every project is priced based on the scope, complexity and timeline identified during the AI Gap Assessment. The assessment itself is free. We do not publish fixed prices because every business is different, but you will receive a clear quote before any commitment.</p>
+        <h3 class="faq-heading">
+          <button class="faq-question" id="faq-q1" aria-expanded="true" aria-controls="faq-a1">
+            <span class="faq-q-text">How much does it cost?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </button>
+        </h3>
+        <div class="faq-answer" id="faq-a1" role="region" aria-labelledby="faq-q1">
+          <div class="faq-answer-inner">
+            <p>Every project is priced based on the scope, complexity and timeline identified during the AI Gap Assessment. The assessment itself is free. We do not publish fixed prices because every business is different, but you will receive a clear quote before any commitment.</p>
+          </div>
         </div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <h3>How long does a project take?</h3>
-          <span class="faq-toggle">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>Most projects are completed within 4 to 10 weeks depending on the scope. You will receive a clear timeline in your assessment report before any commitment.</p>
+        <h3 class="faq-heading">
+          <button class="faq-question" id="faq-q2" aria-expanded="false" aria-controls="faq-a2">
+            <span class="faq-q-text">How long does a project take?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </button>
+        </h3>
+        <div class="faq-answer" id="faq-a2" role="region" aria-labelledby="faq-q2">
+          <div class="faq-answer-inner">
+            <p>Most projects are completed within 4 to 10 weeks depending on the scope. You will receive a clear timeline in your assessment report before any commitment.</p>
+          </div>
         </div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <h3>Will AI replace my staff?</h3>
-          <span class="faq-toggle">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>No. We build systems that remove the manual, repetitive work your team currently does by hand, freeing them to focus on higher-value tasks. Your people stay. Their output multiplies.</p>
+        <h3 class="faq-heading">
+          <button class="faq-question" id="faq-q3" aria-expanded="false" aria-controls="faq-a3">
+            <span class="faq-q-text">Will AI replace my staff?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </button>
+        </h3>
+        <div class="faq-answer" id="faq-a3" role="region" aria-labelledby="faq-q3">
+          <div class="faq-answer-inner">
+            <p>No. We build systems that remove the manual, repetitive work your team currently does by hand, freeing them to focus on higher-value tasks. Your people stay. Their output multiplies.</p>
+          </div>
         </div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <h3>What if we have tried AI tools before and they did not work?</h3>
-          <span class="faq-toggle">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>Off-the-shelf AI tools fail because they are generic. They do not know your workflows, your team structure or your data. We build solutions specifically around how your business operates. That is why they work.</p>
+        <h3 class="faq-heading">
+          <button class="faq-question" id="faq-q4" aria-expanded="false" aria-controls="faq-a4">
+            <span class="faq-q-text">What if we have tried AI tools before and they did not work?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </button>
+        </h3>
+        <div class="faq-answer" id="faq-a4" role="region" aria-labelledby="faq-q4">
+          <div class="faq-answer-inner">
+            <p>Off-the-shelf AI tools fail because they are generic. They do not know your workflows, your team structure or your data. We build solutions specifically around how your business operates. That is why they work.</p>
+          </div>
         </div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <h3>What happens after deployment?</h3>
-          <span class="faq-toggle">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>We train your team, confirm everything is operational and offer ongoing support plans. Your systems do not become abandoned software. They evolve as your business does.</p>
+        <h3 class="faq-heading">
+          <button class="faq-question" id="faq-q5" aria-expanded="false" aria-controls="faq-a5">
+            <span class="faq-q-text">What happens after deployment?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </button>
+        </h3>
+        <div class="faq-answer" id="faq-a5" role="region" aria-labelledby="faq-q5">
+          <div class="faq-answer-inner">
+            <p>We train your team, confirm everything is operational and offer ongoing support plans. Your systems do not become abandoned software. They evolve as your business does.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -273,7 +275,7 @@
     <div class="footer-left">
       <div>
         <a href="index.html" class="footer-logo">
-          <img src="assets/logo-white.png" alt="SDFM Group Limited">
+          <img src="assets/logo-white.png" alt="SDFM Group Limited" width="90" height="36" loading="lazy">
         </a>
         <p class="footer-tagline">Transforming Kenyan Businesses</p>
       </div>
@@ -291,7 +293,7 @@
   </footer>
 
   <!-- ===== COOKIE CONSENT BANNER ===== -->
-  <div class="cookie-banner" id="cookie-banner" hidden>
+  <div class="cookie-banner" id="cookie-banner" role="region" aria-label="Cookie consent" hidden>
     <p>We use cookies on this website. See our <a href="privacy-policy.html#cookies">cookie policy</a> to learn more.</p>
     <div class="cookie-banner-actions">
       <button type="button" class="cookie-btn-reject" id="cookie-reject">Reject</button>

@@ -15,23 +15,7 @@
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" type="image/png" href="assets/logo.png">
 
-  <!-- Meta Pixel Code -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '2235159617264200');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=2235159617264200&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
+  <!-- Meta Pixel: loaded from js/cookie-consent.js only after the visitor accepts -->
 
   <!-- SDFM first-party analytics -->
   <script async src="https://spm.sdfmgroup.com/sdfm-tracker.js"
@@ -45,11 +29,8 @@
   <div class="nav-wrapper">
     <nav class="nav">
       <a href="index.html" class="nav-logo">
-        <img src="assets/logo.png" alt="SDFM Group Limited">
+        <img src="assets/logo.png" alt="SDFM Group Limited" width="110" height="44">
       </a>
-      <button class="nav-hamburger" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
       <ul class="nav-links">
         <li><a href="index.html#how-it-works">HOW IT WORKS</a></li>
         <li><a href="https://spm.sdfmgroup.com/intake" class="nav-cta">BOOK A DISCOVERY CALL</a></li>
@@ -192,7 +173,7 @@
         <li>If you <strong>Accept</strong> on the cookie banner, a random visitor identifier is also stored in your browser's local storage so we can tell new visitors from returning ones.</li>
         <li>If you <strong>Reject</strong>, or your browser sends a Do Not Track or Global Privacy Control signal, no visitor identifier is stored and any existing one is removed.</li>
       </ul>
-      <p>Aside from the LinkedIn Insight Tag, Meta Pixel and our first-party analytics, we do not currently use additional analytics or advertising pixels. If we add further tracking tools, we will update this section and gate them behind the same consent mechanism where required by law.</p>
+      <p>Aside from the LinkedIn Insight Tag and Meta Pixel (both of which load only if you Accept on our cookie banner) and our first-party analytics, we do not currently use additional analytics or advertising pixels. If we add further tracking tools, we will update this section and gate them behind the same consent mechanism where required by law.</p>
 
       <h2 id="your-rights">11. Your privacy rights</h2>
       <p>Under the Kenya DPA, you have the right to:</p>
@@ -251,7 +232,7 @@
     <div class="footer-left">
       <div>
         <a href="index.html" class="footer-logo">
-          <img src="assets/logo-white.png" alt="SDFM Group Limited">
+          <img src="assets/logo-white.png" alt="SDFM Group Limited" width="90" height="36" loading="lazy">
         </a>
         <p class="footer-tagline">Transforming Kenyan Businesses</p>
       </div>
@@ -269,7 +250,7 @@
   </footer>
 
   <!-- ===== COOKIE CONSENT BANNER ===== -->
-  <div class="cookie-banner" id="cookie-banner" hidden>
+  <div class="cookie-banner" id="cookie-banner" role="region" aria-label="Cookie consent" hidden>
     <p>We use cookies on this website. See our <a href="privacy-policy.html#cookies">cookie policy</a> to learn more.</p>
     <div class="cookie-banner-actions">
       <button type="button" class="cookie-btn-reject" id="cookie-reject">Reject</button>

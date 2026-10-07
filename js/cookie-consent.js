@@ -1,11 +1,12 @@
 /* ============================================
    SDFM GROUP LIMITED — Cookie Consent
-   Gates the LinkedIn Insight Tag behind visitor consent.
+   Gates the LinkedIn Insight Tag and the Meta Pixel behind visitor consent.
    ============================================ */
 
 (function () {
   var STORAGE_KEY = 'sdfm_cookie_consent';
   var LINKEDIN_PARTNER_ID = '10918017';
+  var META_PIXEL_ID = '2235159617264200';
 
   function getConsent() {
     try {
@@ -24,6 +25,32 @@
     // Tell the first-party tracker (sdfm-tracker.js) so it starts or stops
     // recognising returning visitors straight away.
     window.dispatchEvent(new CustomEvent('sdfm:consent', { detail: value }));
+  }
+
+  function loadMetaPixel() {
+    if (window._metaPixelLoaded) return;
+    window._metaPixelLoaded = true;
+
+    // Standard Meta Pixel base code, run only after the visitor accepts.
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return;
+      n = f.fbq = function () {
+        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+      };
+      if (!f._fbq) f._fbq = n;
+      n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = [];
+      t = b.createElement(e); t.async = !0; t.src = v;
+      s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s);
+    }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+
+    window.fbq('init', META_PIXEL_ID);
+    window.fbq('track', 'PageView');
+  }
+
+  function loadTrackingTags() {
+    loadLinkedInInsightTag();
+    loadMetaPixel();
   }
 
   function loadLinkedInInsightTag() {
@@ -65,7 +92,7 @@
     var consent = getConsent();
 
     if (consent === 'accepted') {
-      loadLinkedInInsightTag();
+      loadTrackingTags();
     } else if (consent !== 'rejected' && banner) {
       banner.hidden = false;
     }
@@ -73,7 +100,7 @@
     if (acceptBtn && banner) {
       acceptBtn.addEventListener('click', function () {
         setConsent('accepted');
-        loadLinkedInInsightTag();
+        loadTrackingTags();
         banner.hidden = true;
       });
     }

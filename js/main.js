@@ -4,71 +4,26 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  // --- Sticky Nav Scroll Shadow ---
+  // --- Sticky Nav Scroll Edge ---
   var navWrapper = document.querySelector('.nav-wrapper');
   if (navWrapper) {
-    window.addEventListener('scroll', function () {
-      if (window.scrollY > 10) {
-        navWrapper.classList.add('scrolled');
-      } else {
-        navWrapper.classList.remove('scrolled');
-      }
-    }, { passive: true });
-  }
-
-
-  // --- Mobile Navigation Toggle ---
-  var hamburger = document.querySelector('.nav-hamburger');
-  var navLinks = document.querySelector('.nav-links');
-
-  if (hamburger && navLinks) {
-    hamburger.addEventListener('click', function () {
-      navLinks.classList.toggle('open');
-      hamburger.classList.toggle('open');
-    });
-
-    navLinks.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        navLinks.classList.remove('open');
-        hamburger.classList.remove('open');
-      });
-    });
+    var onScroll = function () {
+      navWrapper.classList.toggle('scrolled', window.scrollY > 10);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   }
 
 
   // --- FAQ Accordion ---
-  var faqItems = document.querySelectorAll('.faq-item');
-
-  faqItems.forEach(function (item) {
+  // Items open and close independently, so opening one never shifts the others.
+  document.querySelectorAll('.faq-item').forEach(function (item) {
     var question = item.querySelector('.faq-question');
+    if (!question) return;
 
     question.addEventListener('click', function () {
-      var isOpen = item.classList.contains('open');
-
-      // Close all others
-      faqItems.forEach(function (other) {
-        other.classList.remove('open');
-        var btn = other.querySelector('.faq-question');
-        if (btn) btn.setAttribute('aria-expanded', 'false');
-      });
-
-      // Toggle current
-      if (!isOpen) {
-        item.classList.add('open');
-        question.setAttribute('aria-expanded', 'true');
-      }
-    });
-  });
-
-
-  // --- Smooth scroll for anchor links ---
-  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-    anchor.addEventListener('click', function (e) {
-      var target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      var isOpen = item.classList.toggle('open');
+      question.setAttribute('aria-expanded', String(isOpen));
     });
   });
 
@@ -77,29 +32,47 @@ document.addEventListener('DOMContentLoaded', function () {
   var revealElements = document.querySelectorAll('.reveal');
 
   if (revealElements.length > 0) {
-    // Check for reduced motion preference
+    var show = function (el) { el.classList.add('visible'); };
+
+    // Reduced motion, or no IntersectionObserver: show everything immediately
     var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    if (prefersReducedMotion) {
-      // Show everything immediately
-      revealElements.forEach(function (el) {
-        el.classList.add('visible');
-      });
+    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+      revealElements.forEach(show);
     } else {
       var observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+            show(entry.target);
             observer.unobserve(entry.target);
           }
         });
       }, {
-        threshold: 0.15
+        threshold: 0.05
       });
 
       revealElements.forEach(function (el) {
         observer.observe(el);
       });
+
+      // Anchor navigation (nav link or a URL hash): reveal the destination
+      // straight away so you never land on a blank section. Scrolling itself is
+      // left to CSS (scroll-behavior), which already honours reduced motion.
+      var revealTarget = function (hash) {
+        if (!hash || hash.length < 2) return;
+        try {
+          var target = document.querySelector(hash);
+          if (target && target.classList.contains('reveal')) show(target);
+        } catch (e) { /* invalid selector in hash: ignore */ }
+      };
+
+      document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        anchor.addEventListener('click', function () {
+          revealTarget(anchor.getAttribute('href'));
+        });
+      });
+      window.addEventListener('hashchange', function () { revealTarget(window.location.hash); });
+      revealTarget(window.location.hash);
     }
   }
 
