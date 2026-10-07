@@ -21,6 +21,9 @@
     } catch (e) {
       /* Storage unavailable (private mode, blocked cookies, etc). Consent will be re-asked next visit. */
     }
+    // Tell the first-party tracker (sdfm-tracker.js) so it starts or stops
+    // recognising returning visitors straight away.
+    window.dispatchEvent(new CustomEvent('sdfm:consent', { detail: value }));
   }
 
   function loadLinkedInInsightTag() {
