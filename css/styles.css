@@ -291,6 +291,7 @@ img { max-width: 100%; height: auto; display: block; }
 .hero-buttons { display: flex; gap: 16px; }
 
 .hero-image { flex: 1.15; min-width: 0; }
+.hero-image picture { display: block; }
 
 /* Hero image: natural aspect ratio, so the dashboard is never cropped */
 .hero-img {
