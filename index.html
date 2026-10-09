@@ -58,6 +58,18 @@
         "image": "https://sdfmgroup.com/assets/og-image.png",
         "description": "SDFM Group designs, builds and deploys custom AI systems and automation for Kenyan businesses.",
         "sameAs": ["https://www.linkedin.com/company/sdfm-group-limited"],
+        "telephone": "+254757230579",
+        "email": "flex@sdfmgroup.com",
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "contactType": "sales",
+            "telephone": "+254757230579",
+            "email": "flex@sdfmgroup.com",
+            "areaServed": "KE",
+            "availableLanguage": "English"
+          }
+        ],
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Nairobi",
@@ -91,6 +103,8 @@
         "url": "https://sdfmgroup.com/",
         "image": "https://sdfmgroup.com/assets/og-image.png",
         "parentOrganization": { "@id": "https://sdfmgroup.com/#organization" },
+        "telephone": "+254757230579",
+        "email": "flex@sdfmgroup.com",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Nairobi",
@@ -134,6 +148,16 @@
         "mainEntity": [
           {
             "@type": "Question",
+            "name": "What happens on the discovery call?",
+            "acceptedAnswer": { "@type": "Answer", "text": "It is a conversation about how your team works today. We ask which processes take the most time or cost the most, note where AI could help, and tell you honestly whether we are the right people to help. You leave knowing what the next step would be, with no obligation to take it." }
+          },
+          {
+            "@type": "Question",
+            "name": "How long is the call, and do I need to prepare?",
+            "acceptedAnswer": { "@type": "Answer", "text": "The call is 30 minutes on Google Meet. You do not need to prepare anything. After you book, you can optionally answer five short questions that help us come with ideas that fit your business." }
+          },
+          {
+            "@type": "Question",
             "name": "How much does it cost?",
             "acceptedAnswer": { "@type": "Answer", "text": "Every project is priced based on the scope, complexity and timeline identified during the AI Gap Assessment. The assessment itself is free. We do not publish fixed prices because every business is different, but you will receive a clear quote before any commitment." }
           },
@@ -156,6 +180,16 @@
             "@type": "Question",
             "name": "What happens after deployment?",
             "acceptedAnswer": { "@type": "Answer", "text": "We train your team, confirm everything is operational and offer ongoing support plans. Your systems do not become abandoned software. They evolve as your business does." }
+          },
+          {
+            "@type": "Question",
+            "name": "Who is this for?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Kenyan businesses with repeated manual work that costs real time or money, such as invoicing, reporting, lead handling, approvals or data entry across several systems. If you are not sure whether AI fits, book the call. We will tell you honestly." }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you only work with businesses in Nairobi?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. We are based in Nairobi, but discovery calls happen on Google Meet and we work with businesses across Kenya." }
           }
         ]
       }
@@ -180,8 +214,9 @@
         <img src="/assets/logo.png" alt="SDFM Group Limited" width="110" height="44">
       </a>
       <ul class="nav-links">
+        <li><a href="#what-we-build">WHAT WE BUILD</a></li>
         <li><a href="#how-it-works">HOW IT WORKS</a></li>
-        <li><a href="https://spm.sdfmgroup.com/intake" class="nav-cta">BOOK A DISCOVERY CALL</a></li>
+        <li><a href="/book" class="nav-cta" data-sdfm-cta data-sdfm-label="nav_book">BOOK A FREE CALL</a></li>
       </ul>
     </nav>
   </div>
@@ -195,8 +230,13 @@
       <h1>We build<br>AI systems<br>that run your operations.</h1>
       <p class="hero-subtext">We design, build and deploy custom AI solutions tailored to how your business actually works. Your operations get faster. Your team gets their time back.</p>
       <div class="hero-buttons">
-        <a href="https://spm.sdfmgroup.com/intake" class="btn-primary">Book a Discovery Call</a>
+        <a href="/book" class="btn-primary" data-sdfm-cta data-sdfm-label="hero_book">Get your free AI Gap Assessment</a>
+        <a href="https://wa.me/254757230579?text=Hi%20SDFM%2C%20I%27d%20like%20to%20talk%20about%20a%20free%20AI%20Gap%20Assessment." class="btn-secondary btn-whatsapp" target="_blank" rel="noopener noreferrer" data-sdfm-cta data-sdfm-label="hero_whatsapp">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2A9.93 9.93 0 0 0 3.6 17.07L2 22l5.06-1.57A9.94 9.94 0 1 0 12.04 2zm0 1.8a8.14 8.14 0 1 1-4.3 15.07l-.31-.18-3 .93.98-2.92-.2-.32A8.14 8.14 0 0 1 12.04 3.8zm-3.1 4.1c-.17 0-.45.06-.69.32-.24.26-.9.88-.9 2.15s.92 2.5 1.05 2.67c.13.17 1.8 2.86 4.4 3.9 2.17.86 2.6.69 3.07.65.47-.04 1.5-.61 1.71-1.2.21-.6.21-1.1.15-1.2-.06-.11-.23-.17-.49-.3-.26-.13-1.5-.74-1.74-.83-.23-.09-.4-.13-.57.13-.17.26-.65.83-.8 1-.15.17-.3.19-.56.06-.26-.13-1.08-.4-2.06-1.27-.76-.68-1.28-1.52-1.43-1.78-.15-.26-.02-.4.11-.52.12-.12.26-.3.39-.45.13-.15.17-.26.26-.43.09-.17.04-.32-.02-.45-.06-.13-.57-1.4-.78-1.91-.2-.5-.42-.43-.57-.44h-.49z"/></svg>
+          Chat on WhatsApp
+        </a>
       </div>
+      <p class="hero-note">Free · 30 minutes on Google Meet · No obligation</p>
     </div>
     <div class="hero-image">
       <picture>
@@ -212,18 +252,18 @@
     <div class="container">
       <div class="eyebrow">THE PROBLEM</div>
       <h2 class="section-heading">AI is everywhere, and most Kenyan businesses still can't make it work for them.</h2>
-      <p class="section-subtext">The technology exists. The willingness is there. What is missing is a partner who can see the gaps, design the right solution and deliver it. Fast. That is what SDFM does.</p>
+      <p class="section-subtext">The technology exists and the willingness is there. What is missing is a partner who can see the gaps, design the right solution and deliver it. That is what SDFM does.</p>
 
       <div class="problem-cards">
         <div class="problem-card">
           <div class="card-label">01</div>
           <h3>The awareness gap</h3>
-          <p>You know AI could improve your operations. But you cannot pinpoint which workflows would benefit most, or where to start. So nothing happens.</p>
+          <p>You know AI could improve your operations, but you cannot tell which workflows would benefit most or where to start. So nothing happens.</p>
         </div>
         <div class="problem-card">
           <div class="card-label">02</div>
           <h3>The expertise gap</h3>
-          <p>Even when you identify a use case, you do not have the in-house talent to design, build and deploy a solution. Hiring a full-time developer is expensive and risky.</p>
+          <p>Even with a use case in mind, you lack the in-house talent to design, build and deploy it. Hiring a full-time developer is expensive and risky.</p>
         </div>
         <div class="problem-card">
           <div class="card-label">03</div>
@@ -235,39 +275,53 @@
   </section>
 
 
-  <!-- ===== WHAT WE DO ===== -->
-  <section class="what-we-do reveal">
+  <!-- ===== WHAT WE BUILD ===== -->
+  <section class="what-we-build reveal" id="what-we-build">
     <div class="container">
-      <div class="eyebrow">WHAT WE DO</div>
-      <h2 class="section-heading">We turn operational problems into working AI solutions.</h2>
+      <div class="eyebrow">WHAT WE BUILD</div>
+      <h2 class="section-heading">Custom AI and automation, built around how your team already works.</h2>
+      <p class="section-subtext">Typical examples of what we design and deploy. Every project starts from your own workflows, never from a template.</p>
 
-      <div class="pillars">
-        <div class="pillar">
-          <div class="pillar-number">01</div>
-          <div>
-            <h3>Designed around your operations</h3>
-            <p>We study how work actually moves across your teams, departments and systems. Every solution is built around the way your business operates today, not a generic template forced onto your workflows.</p>
-          </div>
+      <div class="build-grid">
+        <div class="build-card">
+          <h3>Invoice and document processing</h3>
+          <p>Capture, check and file supplier invoices and other paperwork without anyone retyping them.</p>
         </div>
-
-        <div class="pillar-divider"></div>
-
-        <div class="pillar">
-          <div class="pillar-number">02</div>
-          <div>
-            <h3>Standalone or integrated. Whatever the problem needs.</h3>
-            <p>Some gaps need a purpose-built standalone system. Others need your existing tools connected and working together. We assess which approach delivers the most impact and build accordingly. CRM modules, dashboards, automation tools or entirely new platforms.</p>
-          </div>
+        <div class="build-card">
+          <h3>Lead capture and qualification</h3>
+          <p>Route enquiries to the right person, score them against your criteria and follow up automatically.</p>
         </div>
+        <div class="build-card">
+          <h3>Reporting and dashboards</h3>
+          <p>Management reports and live dashboards built from your own data, so nobody assembles them by hand.</p>
+        </div>
+        <div class="build-card">
+          <h3>Data sync between your systems</h3>
+          <p>Keep your CRM, accounting software and spreadsheets matching without copy and paste.</p>
+        </div>
+        <div class="build-card">
+          <h3>Customer follow-ups and reminders</h3>
+          <p>Quotes, invoices and appointments chased on schedule, so nothing slips through the cracks.</p>
+        </div>
+        <div class="build-card">
+          <h3>Internal approvals and workflows</h3>
+          <p>Requests, approvals and stock or purchase workflows that move through the right people with a clear record.</p>
+        </div>
+      </div>
 
-        <div class="pillar-divider"></div>
-
-        <div class="pillar">
-          <div class="pillar-number">03</div>
-          <div>
-            <h3>You run your business. We run the technology.</h3>
-            <p>We handle the entire lifecycle: design, development, deployment, training and ongoing support. Your team does not need to become technical. They just use the system and get on with their work.</p>
-          </div>
+      <h3 class="principles-heading">How we work</h3>
+      <div class="principles">
+        <div class="principle">
+          <h4>Designed around your operations</h4>
+          <p>We study how work actually moves across your teams, departments and systems, and build around that, not a generic template forced onto your workflows.</p>
+        </div>
+        <div class="principle">
+          <h4>Standalone or integrated</h4>
+          <p>Some gaps need a purpose-built system. Others need your existing tools connected. We assess which delivers the most impact and build accordingly.</p>
+        </div>
+        <div class="principle">
+          <h4>You run the business. We run the technology.</h4>
+          <p>Design, development, deployment, training and ongoing support. Your team does not need to become technical. They just use the system.</p>
         </div>
       </div>
     </div>
@@ -323,7 +377,14 @@
         <li>A clear implementation timeline and cost</li>
       </ul>
       <p class="offer-note">Whether you proceed with us or not, the assessment is yours to keep. No obligation. No sales pitch.</p>
-      <a href="https://spm.sdfmgroup.com/intake" class="btn-primary btn-large">Book a Discovery Call</a>
+      <div class="offer-buttons">
+        <a href="/book" class="btn-primary btn-large" data-sdfm-cta data-sdfm-label="offer_book">Get your free AI Gap Assessment</a>
+        <a href="https://wa.me/254757230579?text=Hi%20SDFM%2C%20I%27d%20like%20to%20talk%20about%20a%20free%20AI%20Gap%20Assessment." class="btn-secondary btn-large btn-whatsapp" target="_blank" rel="noopener noreferrer" data-sdfm-cta data-sdfm-label="offer_whatsapp">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2A9.93 9.93 0 0 0 3.6 17.07L2 22l5.06-1.57A9.94 9.94 0 1 0 12.04 2zm0 1.8a8.14 8.14 0 1 1-4.3 15.07l-.31-.18-3 .93.98-2.92-.2-.32A8.14 8.14 0 0 1 12.04 3.8zm-3.1 4.1c-.17 0-.45.06-.69.32-.24.26-.9.88-.9 2.15s.92 2.5 1.05 2.67c.13.17 1.8 2.86 4.4 3.9 2.17.86 2.6.69 3.07.65.47-.04 1.5-.61 1.71-1.2.21-.6.21-1.1.15-1.2-.06-.11-.23-.17-.49-.3-.26-.13-1.5-.74-1.74-.83-.23-.09-.4-.13-.57.13-.17.26-.65.83-.8 1-.15.17-.3.19-.56.06-.26-.13-1.08-.4-2.06-1.27-.76-.68-1.28-1.52-1.43-1.78-.15-.26-.02-.4.11-.52.12-.12.26-.3.39-.45.13-.15.17-.26.26-.43.09-.17.04-.32-.02-.45-.06-.13-.57-1.4-.78-1.91-.2-.5-.42-.43-.57-.44h-.49z"/></svg>
+          Chat on WhatsApp
+        </a>
+      </div>
+      <p class="hero-note offer-microcopy">Free · 30 minutes on Google Meet · Takes about a minute to book</p>
     </div>
   </section>
 
@@ -338,11 +399,39 @@
       <div class="faq-item open">
         <h3 class="faq-heading">
           <button class="faq-question" id="faq-q1" aria-expanded="true" aria-controls="faq-a1">
-            <span class="faq-q-text">How much does it cost?</span>
+            <span class="faq-q-text">What happens on the discovery call?</span>
             <span class="faq-toggle" aria-hidden="true">+</span>
           </button>
         </h3>
         <div class="faq-answer" id="faq-a1" role="region" aria-labelledby="faq-q1">
+          <div class="faq-answer-inner">
+            <p>It is a conversation about how your team works today. We ask which processes take the most time or cost the most, note where AI could help, and tell you honestly whether we are the right people to help. You leave knowing what the next step would be, with no obligation to take it.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-heading">
+          <button class="faq-question" id="faq-q2" aria-expanded="false" aria-controls="faq-a2">
+            <span class="faq-q-text">How long is the call, and do I need to prepare?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </button>
+        </h3>
+        <div class="faq-answer" id="faq-a2" role="region" aria-labelledby="faq-q2">
+          <div class="faq-answer-inner">
+            <p>The call is 30 minutes on Google Meet. You do not need to prepare anything. After you book, you can optionally answer five short questions that help us come with ideas that fit your business.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-heading">
+          <button class="faq-question" id="faq-q3" aria-expanded="false" aria-controls="faq-a3">
+            <span class="faq-q-text">How much does it cost?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </button>
+        </h3>
+        <div class="faq-answer" id="faq-a3" role="region" aria-labelledby="faq-q3">
           <div class="faq-answer-inner">
             <p>Every project is priced based on the scope, complexity and timeline identified during the AI Gap Assessment. The assessment itself is free. We do not publish fixed prices because every business is different, but you will receive a clear quote before any commitment.</p>
           </div>
@@ -351,12 +440,12 @@
 
       <div class="faq-item">
         <h3 class="faq-heading">
-          <button class="faq-question" id="faq-q2" aria-expanded="false" aria-controls="faq-a2">
+          <button class="faq-question" id="faq-q4" aria-expanded="false" aria-controls="faq-a4">
             <span class="faq-q-text">How long does a project take?</span>
             <span class="faq-toggle" aria-hidden="true">+</span>
           </button>
         </h3>
-        <div class="faq-answer" id="faq-a2" role="region" aria-labelledby="faq-q2">
+        <div class="faq-answer" id="faq-a4" role="region" aria-labelledby="faq-q4">
           <div class="faq-answer-inner">
             <p>Most projects are completed within 4 to 10 weeks depending on the scope. You will receive a clear timeline in your assessment report before any commitment.</p>
           </div>
@@ -365,12 +454,12 @@
 
       <div class="faq-item">
         <h3 class="faq-heading">
-          <button class="faq-question" id="faq-q3" aria-expanded="false" aria-controls="faq-a3">
+          <button class="faq-question" id="faq-q5" aria-expanded="false" aria-controls="faq-a5">
             <span class="faq-q-text">Will AI replace my staff?</span>
             <span class="faq-toggle" aria-hidden="true">+</span>
           </button>
         </h3>
-        <div class="faq-answer" id="faq-a3" role="region" aria-labelledby="faq-q3">
+        <div class="faq-answer" id="faq-a5" role="region" aria-labelledby="faq-q5">
           <div class="faq-answer-inner">
             <p>No. We build systems that remove the manual, repetitive work your team currently does by hand, freeing them to focus on higher-value tasks. Your people stay. Their output multiplies.</p>
           </div>
@@ -379,12 +468,12 @@
 
       <div class="faq-item">
         <h3 class="faq-heading">
-          <button class="faq-question" id="faq-q4" aria-expanded="false" aria-controls="faq-a4">
+          <button class="faq-question" id="faq-q6" aria-expanded="false" aria-controls="faq-a6">
             <span class="faq-q-text">What if we have tried AI tools before and they did not work?</span>
             <span class="faq-toggle" aria-hidden="true">+</span>
           </button>
         </h3>
-        <div class="faq-answer" id="faq-a4" role="region" aria-labelledby="faq-q4">
+        <div class="faq-answer" id="faq-a6" role="region" aria-labelledby="faq-q6">
           <div class="faq-answer-inner">
             <p>Off-the-shelf AI tools fail because they are generic. They do not know your workflows, your team structure or your data. We build solutions specifically around how your business operates. That is why they work.</p>
           </div>
@@ -393,14 +482,42 @@
 
       <div class="faq-item">
         <h3 class="faq-heading">
-          <button class="faq-question" id="faq-q5" aria-expanded="false" aria-controls="faq-a5">
+          <button class="faq-question" id="faq-q7" aria-expanded="false" aria-controls="faq-a7">
             <span class="faq-q-text">What happens after deployment?</span>
             <span class="faq-toggle" aria-hidden="true">+</span>
           </button>
         </h3>
-        <div class="faq-answer" id="faq-a5" role="region" aria-labelledby="faq-q5">
+        <div class="faq-answer" id="faq-a7" role="region" aria-labelledby="faq-q7">
           <div class="faq-answer-inner">
             <p>We train your team, confirm everything is operational and offer ongoing support plans. Your systems do not become abandoned software. They evolve as your business does.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-heading">
+          <button class="faq-question" id="faq-q8" aria-expanded="false" aria-controls="faq-a8">
+            <span class="faq-q-text">Who is this for?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </button>
+        </h3>
+        <div class="faq-answer" id="faq-a8" role="region" aria-labelledby="faq-q8">
+          <div class="faq-answer-inner">
+            <p>Kenyan businesses with repeated manual work that costs real time or money, such as invoicing, reporting, lead handling, approvals or data entry across several systems. If you are not sure whether AI fits, book the call. We will tell you honestly.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-heading">
+          <button class="faq-question" id="faq-q9" aria-expanded="false" aria-controls="faq-a9">
+            <span class="faq-q-text">Do you only work with businesses in Nairobi?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </button>
+        </h3>
+        <div class="faq-answer" id="faq-a9" role="region" aria-labelledby="faq-q9">
+          <div class="faq-answer-inner">
+            <p>No. We are based in Nairobi, but discovery calls happen on Google Meet and we work with businesses across Kenya.</p>
           </div>
         </div>
       </div>
@@ -408,12 +525,27 @@
   </section>
 
 
-  <!-- ===== FINAL CTA ===== -->
-  <section class="final-cta">
+  <!-- ===== CONTACT ===== -->
+  <section class="contact" id="contact">
     <div class="container">
       <h2>Find out exactly where AI fits in your business.</h2>
-      <p>We will review your operations, identify the highest-impact workflows for AI and outline a practical first deployment, at no cost.</p>
-      <a href="https://spm.sdfmgroup.com/intake" class="btn-primary btn-large">Book a Discovery Call</a>
+      <p>We will review your operations, identify the highest-impact workflows for AI and outline a practical first deployment, at no cost. Book a time, or reach us directly.</p>
+      <a href="/book" class="btn-primary btn-large" data-sdfm-cta data-sdfm-label="contact_book">Get your free AI Gap Assessment</a>
+      <div class="contact-grid">
+        <a class="contact-card" href="https://wa.me/254757230579?text=Hi%20SDFM%2C%20I%27d%20like%20to%20talk%20about%20a%20free%20AI%20Gap%20Assessment." target="_blank" rel="noopener noreferrer" data-sdfm-cta data-sdfm-label="contact_whatsapp">
+          <span class="contact-label">WhatsApp</span>
+          <span class="contact-value">+254 757 230 579</span>
+        </a>
+        <a class="contact-card" href="tel:+254757230579" data-sdfm-cta data-sdfm-label="contact_phone">
+          <span class="contact-label">Call</span>
+          <span class="contact-value">+254 757 230 579</span>
+        </a>
+        <a class="contact-card" href="mailto:flex@sdfmgroup.com" data-sdfm-cta data-sdfm-label="contact_email">
+          <span class="contact-label">Email</span>
+          <span class="contact-value">flex@sdfmgroup.com</span>
+        </a>
+      </div>
+      <p class="contact-location">SDFM Group Limited · Nairobi, Kenya</p>
     </div>
   </section>
 
@@ -432,6 +564,7 @@
     </div>
     <div class="footer-right">
       <p class="footer-location">Nairobi, Kenya</p>
+      <p class="footer-contact"><a href="tel:+254757230579" data-sdfm-cta data-sdfm-label="footer_phone">+254 757 230 579</a> · <a href="mailto:flex@sdfmgroup.com" data-sdfm-cta data-sdfm-label="footer_email">flex@sdfmgroup.com</a></p>
       <p class="footer-copyright">© 2026 SDFM Group Limited</p>
       <p class="footer-legal"><a href="/privacy-policy.html">Privacy Policy</a> · <button type="button" data-cookie-preferences>Cookie Preferences</button></p>
       <div class="footer-social">
@@ -441,6 +574,15 @@
       </div>
     </div>
   </footer>
+
+  <!-- ===== MOBILE ACTION BAR (phones only) ===== -->
+  <div class="mobile-cta" role="region" aria-label="Quick actions">
+    <a href="/book" class="btn-primary" data-sdfm-cta data-sdfm-label="mobile_book">Book a free call</a>
+    <a href="https://wa.me/254757230579?text=Hi%20SDFM%2C%20I%27d%20like%20to%20talk%20about%20a%20free%20AI%20Gap%20Assessment." class="btn-secondary btn-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" data-sdfm-cta data-sdfm-label="mobile_whatsapp">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2A9.93 9.93 0 0 0 3.6 17.07L2 22l5.06-1.57A9.94 9.94 0 1 0 12.04 2zm0 1.8a8.14 8.14 0 1 1-4.3 15.07l-.31-.18-3 .93.98-2.92-.2-.32A8.14 8.14 0 0 1 12.04 3.8zm-3.1 4.1c-.17 0-.45.06-.69.32-.24.26-.9.88-.9 2.15s.92 2.5 1.05 2.67c.13.17 1.8 2.86 4.4 3.9 2.17.86 2.6.69 3.07.65.47-.04 1.5-.61 1.71-1.2.21-.6.21-1.1.15-1.2-.06-.11-.23-.17-.49-.3-.26-.13-1.5-.74-1.74-.83-.23-.09-.4-.13-.57.13-.17.26-.65.83-.8 1-.15.17-.3.19-.56.06-.26-.13-1.08-.4-2.06-1.27-.76-.68-1.28-1.52-1.43-1.78-.15-.26-.02-.4.11-.52.12-.12.26-.3.39-.45.13-.15.17-.26.26-.43.09-.17.04-.32-.02-.45-.06-.13-.57-1.4-.78-1.91-.2-.5-.42-.43-.57-.44h-.49z"/></svg>
+      <span>WhatsApp</span>
+    </a>
+  </div>
 
   <!-- ===== COOKIE CONSENT BANNER ===== -->
   <div class="cookie-banner" id="cookie-banner" role="region" aria-label="Cookie consent" hidden>
