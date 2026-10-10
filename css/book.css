@@ -1,245 +1,224 @@
 /* ============================================
    SDFM GROUP LIMITED — Booking page (/book)
    Builds on the tokens and components in styles.css.
+   Selectors and state classes are driven by js/book.js: keep them stable.
    ============================================ */
 
 .book {
-  background: var(--bg-gray);
-  padding: 64px var(--side-pad) var(--section-pad);
-  min-height: 70vh;
+  position: relative;
+  background: var(--paper);
+  padding: clamp(40px, 5vw, 72px) 0 var(--section);
+  min-height: 72vh;
+  overflow: hidden;
+}
+.book::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(700px 360px at 100% 0%, rgba(216, 42, 16, 0.08), transparent 70%);
 }
 
 .book-wrap {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
-  gap: 64px;
-  align-items: start;
+  position: relative;
+  max-width: var(--container); margin: 0 auto; padding: 0 var(--gutter);
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: clamp(32px, 5vw, 80px); align-items: start;
 }
 
 /* --- Intro column --- */
 .book-intro h1 {
-  font-size: 44px;
-  font-weight: 900;
-  line-height: 1.1;
-  letter-spacing: -0.025em;
-  margin-bottom: 20px;
+  font-size: clamp(2.1rem, 1.5rem + 2.4vw, 3.4rem);
+  font-weight: 700; line-height: 1.05; letter-spacing: -0.035em;
+  margin-bottom: 20px; text-wrap: balance;
 }
-.book-lead { font-size: 18px; line-height: 1.7; color: var(--text-body); margin-bottom: 32px; max-width: 460px; }
+.book-lead { font-size: 1.125rem; line-height: 1.7; color: var(--fg-body); margin-bottom: 32px; max-width: 46ch; }
 
-.book-points { list-style: none; display: flex; flex-direction: column; gap: 18px; margin-bottom: 40px; max-width: 460px; }
-.book-points li { position: relative; padding-left: 28px; font-size: 16px; line-height: 1.65; color: var(--text-body); }
+.book-points { display: flex; flex-direction: column; gap: 0; margin-bottom: 36px; max-width: 48ch; }
+.book-points li {
+  position: relative; padding: 18px 0 18px 40px;
+  font-size: 1rem; line-height: 1.65; color: var(--fg-body);
+  border-top: 1px solid var(--rule-strong);
+}
+.book-points li:last-child { border-bottom: 1px solid var(--rule-strong); }
 .book-points li::before {
-  content: "✓"; position: absolute; left: 0; top: 0;
-  color: var(--red-text); font-weight: 700;
+  content: ""; position: absolute; left: 0; top: 19px;
+  width: 24px; height: 24px; border-radius: 50%;
+  background: rgba(216, 42, 16, 0.1)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C9260C' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E")
+    center / 13px no-repeat;
 }
-.book-points strong { color: var(--charcoal); }
+.book-points strong { color: var(--fg); }
 
-.book-alt { font-size: 15px; color: var(--text-body); line-height: 1.9; }
-.book-alt p { font-weight: 700; color: var(--charcoal); }
-.book-alt a { font-weight: 700; }
+.book-alt { font-size: 0.9375rem; color: var(--fg-body); line-height: 1.9; }
+.book-alt p { font-weight: 700; color: var(--fg); }
+.book-alt a { font-weight: 700; color: var(--red-text); }
 
 /* --- Card --- */
 .book-card {
   background: var(--white);
-  border-radius: 14px;
-  padding: 40px;
-  box-shadow: 0 18px 50px rgba(32, 30, 29, 0.08);
+  border: 1px solid var(--card-border);
+  border-radius: var(--r-lg);
+  padding: clamp(24px, 3.5vw, 44px);
+  box-shadow: 0 30px 70px -30px rgba(20, 18, 17, 0.28);
   min-height: 320px;
 }
 .book-card [hidden] { display: none !important; }
 
-.book-steps {
-  list-style: none;
-  display: flex;
-  gap: 8px;
-  margin-bottom: 32px;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--text-muted);
-}
+.book-steps { display: flex; gap: 8px; margin-bottom: 32px; font-size: 0.8125rem; font-weight: 700; color: var(--fg-muted); }
 .book-steps li {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding-bottom: 12px;
-  border-bottom: 3px solid var(--surface);
+  flex: 1; display: flex; align-items: center; gap: 8px;
+  padding-bottom: 12px; border-bottom: 3px solid var(--paper-2);
+  transition: border-color var(--t), color var(--t);
 }
 .book-steps li span {
-  width: 22px; height: 22px; border-radius: 50%;
+  width: 24px; height: 24px; border-radius: 50%;
   display: inline-flex; align-items: center; justify-content: center;
-  background: var(--surface); color: var(--text-body);
-  font-size: 12px;
+  background: var(--paper-2); color: var(--fg-body);
+  font-family: var(--mono); font-size: 0.75rem;
 }
-.book-steps li.active { color: var(--charcoal); border-bottom-color: var(--red); }
-.book-steps li.active span { background: var(--red); color: var(--white); }
-.book-steps li.done { color: var(--charcoal); border-bottom-color: var(--charcoal); }
-.book-steps li.done span { background: var(--charcoal); color: var(--white); }
+.book-steps li.active { color: var(--fg); border-bottom-color: var(--red); }
+.book-steps li.active span { background: var(--red); color: #fff; }
+.book-steps li.done { color: var(--fg); border-bottom-color: var(--ink); }
+.book-steps li.done span { background: var(--ink); color: #fff; }
 
-.book-title { font-size: 26px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 8px; outline: none; }
-.book-sub { font-size: 16px; line-height: 1.65; color: var(--text-body); margin-bottom: 24px; }
+.book-title { font-size: clamp(1.5rem, 1.3rem + 0.7vw, 1.9rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 8px; outline: none; }
+.book-sub { font-size: 1rem; line-height: 1.65; color: var(--fg-body); margin-bottom: 24px; }
 
 /* --- Fields --- */
 .book-field { margin-bottom: 20px; }
-.book-field > label:not(.book-check) { display: block; font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+.book-field > label:not(.book-check) { display: block; font-size: 0.875rem; font-weight: 700; margin-bottom: 8px; }
 
 .book-field input[type="text"],
 .book-field input[type="email"],
 .book-field input[type="tel"],
 .book-field textarea,
 .book-field select {
-  width: 100%;
-  font: inherit;
-  font-size: 16px; /* 16px stops iOS zooming into the field */
-  color: var(--charcoal);
-  background: var(--white);
-  border: 1.5px solid rgba(32, 30, 29, 0.28);
-  border-radius: 8px;
-  padding: 13px 14px;
-  min-height: 48px;
-  transition: border-color var(--transition), box-shadow var(--transition);
+  width: 100%; font: inherit;
+  font-size: 1rem; /* 16px stops iOS zooming into the field */
+  color: var(--fg); background: var(--white);
+  border: 1.5px solid rgba(20, 18, 17, 0.28);
+  border-radius: 12px; padding: 13px 15px; min-height: 50px;
+  transition: border-color var(--t), box-shadow var(--t);
 }
-.book-field textarea { resize: vertical; min-height: 92px; line-height: 1.5; }
-.book-field input:focus,
-.book-field textarea:focus,
-.book-field select:focus {
-  outline: none;
-  border-color: var(--red);
-  box-shadow: 0 0 0 3px rgba(216, 42, 16, 0.18);
+.book-field textarea { resize: vertical; min-height: 96px; line-height: 1.5; }
+.book-field input::placeholder, .book-field textarea::placeholder { color: #8A847E; }
+.book-field input:focus, .book-field textarea:focus, .book-field select:focus {
+  outline: none; border-color: var(--red); box-shadow: 0 0 0 4px rgba(216, 42, 16, 0.16);
 }
-.book-field.has-error input,
-.book-field.has-error textarea { border-color: var(--red-text); }
+.book-field.has-error input, .book-field.has-error textarea { border-color: var(--red-text); }
 
-.book-optional { font-weight: 500; font-size: 13px; color: var(--text-muted); margin-left: 6px; }
+.book-optional { font-weight: 500; font-size: 0.8125rem; color: var(--fg-muted); margin-left: 6px; }
 
-.book-check { display: flex; align-items: center; gap: 10px; margin-top: 12px; font-size: 14px; font-weight: 500; color: var(--text-body); cursor: pointer; }
+.book-check { display: flex; align-items: center; gap: 10px; margin-top: 12px; font-size: 0.875rem; font-weight: 500; color: var(--fg-body); cursor: pointer; }
 .book-check input { width: 18px; height: 18px; accent-color: var(--red); flex-shrink: 0; }
 
-.book-error { font-size: 14px; color: var(--red-text); margin-top: 6px; font-weight: 600; }
-.book-error-form { margin: 0 0 16px; padding: 12px 14px; background: rgba(216, 42, 16, 0.07); border-radius: 8px; }
+.book-error { font-size: 0.875rem; color: var(--red-text); margin-top: 6px; font-weight: 600; }
+.book-error-form { margin: 0 0 16px; padding: 12px 14px; background: rgba(216, 42, 16, 0.07); border-radius: 10px; }
 
 .book-hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
 
-.book-submit { width: 100%; text-align: center; margin-top: 4px; }
-.book-submit[disabled], .btn-primary[disabled] { opacity: 0.45; cursor: not-allowed; transform: none !important; box-shadow: none !important; }
-.book-privacy { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-top: 16px; }
+.book-submit { width: 100%; margin-top: 4px; }
+.book-privacy { font-size: 0.8125rem; color: var(--fg-muted); line-height: 1.6; margin-top: 16px; }
+.book-privacy a { text-decoration: underline; text-underline-offset: 3px; }
 
 /* --- Time picker --- */
 .book-tz { max-width: 360px; }
-.book-picker-label { font-size: 14px; font-weight: 700; margin: 4px 0 10px; }
+.book-picker-label { font-size: 0.875rem; font-weight: 700; margin: 4px 0 10px; }
 
 .book-days { display: grid; grid-template-columns: repeat(auto-fill, minmax(86px, 1fr)); gap: 10px; margin-bottom: 24px; }
 .book-day, .book-time {
   -webkit-tap-highlight-color: transparent;
-  font: inherit;
-  background: var(--white);
-  color: var(--charcoal);
-  border: 1.5px solid rgba(32, 30, 29, 0.28);
-  border-radius: 8px;
-  cursor: pointer;
-  transition: border-color var(--transition), background var(--transition), color var(--transition), transform 0.1s var(--ease-out);
+  font: inherit; background: var(--white); color: var(--fg);
+  border: 1.5px solid rgba(20, 18, 17, 0.24); border-radius: 12px; cursor: pointer;
+  transition: border-color var(--t), background var(--t), color var(--t), transform 0.1s var(--ease);
 }
-.book-day { padding: 10px 6px; text-align: center; min-height: 64px; line-height: 1.25; }
-.book-day small { display: block; font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
-.book-day strong { display: block; font-size: 17px; }
+.book-day { padding: 10px 6px; text-align: center; min-height: 66px; line-height: 1.25; }
+.book-day small { display: block; font-family: var(--mono); font-size: 0.6875rem; font-weight: 500; color: var(--fg-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+.book-day strong { display: block; font-size: 1.0625rem; }
 .book-day:active, .book-time:active { transform: scale(0.97); }
-@media (hover: hover) {
-  .book-day:hover, .book-time:hover { border-color: var(--red); }
-}
-.book-day[aria-pressed="true"], .book-time[aria-pressed="true"] { background: var(--charcoal); border-color: var(--charcoal); color: var(--white); }
-.book-day[aria-pressed="true"] small { color: rgba(255, 255, 255, 0.75); }
+@media (hover: hover) { .book-day:hover, .book-time:hover { border-color: var(--red); } }
+.book-day[aria-pressed="true"], .book-time[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+.book-day[aria-pressed="true"] small { color: rgba(255, 255, 255, 0.78); }
 
 .book-times { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 10px; margin-bottom: 24px; }
-.book-time { padding: 12px 8px; font-size: 16px; font-weight: 700; min-height: 48px; }
-.book-time small { display: block; font-size: 11px; font-weight: 600; color: var(--text-muted); }
-.book-time[aria-pressed="true"] small { color: rgba(255, 255, 255, 0.75); }
+.book-time { padding: 12px 8px; font-size: 1rem; font-weight: 700; min-height: 50px; }
+.book-time small { display: block; font-size: 0.6875rem; font-weight: 600; color: var(--fg-muted); }
+.book-time[aria-pressed="true"] small { color: rgba(255, 255, 255, 0.78); }
 
-.book-summary { font-size: 15px; font-weight: 700; padding: 12px 14px; background: var(--bg-warm); border-left: 3px solid var(--red); border-radius: 6px; margin-bottom: 20px; }
+.book-summary { font-size: 0.9375rem; font-weight: 700; padding: 13px 16px; background: var(--paper); border-left: 3px solid var(--red); border-radius: 10px; margin-bottom: 20px; }
 
-.book-empty { padding: 24px; background: var(--bg-warm); border-radius: 10px; margin-bottom: 20px; }
-.book-empty p { font-size: 15px; line-height: 1.65; color: var(--text-body); margin-bottom: 8px; }
+.book-empty { padding: 24px; background: var(--paper); border-radius: var(--r-md); margin-bottom: 20px; }
+.book-empty p { font-size: 0.9375rem; line-height: 1.65; color: var(--fg-body); margin-bottom: 8px; }
 .book-empty .btn-primary { margin-top: 12px; }
 
 /* --- Done --- */
 .book-done-icon {
-  width: 56px; height: 56px; border-radius: 50%;
-  background: var(--red); color: var(--white);
+  width: 60px; height: 60px; border-radius: 50%;
+  background: var(--red); color: #fff;
   display: flex; align-items: center; justify-content: center;
-  font-size: 28px; font-weight: 700; margin-bottom: 20px;
+  font-size: 1.75rem; font-weight: 700; margin-bottom: 20px;
+  box-shadow: 0 0 0 8px rgba(216, 42, 16, 0.14);
 }
 
-.book-ticket { background: var(--bg-warm); border-left: 4px solid var(--red); border-radius: 8px; padding: 18px 20px; margin-bottom: 24px; }
-.book-ticket p { display: flex; gap: 16px; font-size: 15px; line-height: 1.5; padding: 4px 0; }
-.book-ticket span { width: 64px; flex-shrink: 0; color: var(--text-muted); font-weight: 600; }
+.book-ticket { background: var(--paper); border: 1px solid var(--card-border); border-left: 4px solid var(--red); border-radius: 12px; padding: 18px 20px; margin-bottom: 24px; }
+.book-ticket p { display: flex; gap: 16px; font-size: 0.9375rem; line-height: 1.5; padding: 4px 0; }
+.book-ticket span { width: 64px; flex-shrink: 0; color: var(--fg-muted); font-family: var(--mono); font-size: 0.8125rem; padding-top: 1px; }
 .book-ticket strong { font-weight: 700; min-width: 0; overflow-wrap: anywhere; }
 
 .book-done-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
-.book-done-actions .btn-primary,
-.book-done-actions .btn-secondary { padding: 14px 22px; font-size: 15px; text-align: center; }
-.book-done-note { font-size: 14px; line-height: 1.7; color: var(--text-body); }
+.book-done-note { font-size: 0.875rem; line-height: 1.7; color: var(--fg-body); }
 .book-done-note a { font-weight: 700; }
 
 /* --- Prep questions --- */
-.book-prep { margin-top: 36px; padding-top: 32px; border-top: 1px solid var(--surface); }
-.book-prep h3 { font-size: 20px; font-weight: 900; letter-spacing: -0.015em; margin-bottom: 8px; }
+.book-prep { margin-top: 36px; padding-top: 32px; border-top: 1px solid var(--rule-strong); }
+.book-prep h3 { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; }
 .book-prep fieldset { border: none; padding: 0; margin: 0 0 22px; min-width: 0; }
-.book-prep legend { font-size: 15px; font-weight: 700; line-height: 1.45; margin-bottom: 10px; padding: 0; }
-.book-prep legend span { color: var(--red-text); margin-right: 6px; }
+.book-prep legend { font-size: 0.9375rem; font-weight: 700; line-height: 1.45; margin-bottom: 10px; padding: 0; }
+.book-prep legend span { color: var(--red-text); margin-right: 6px; font-family: var(--mono); }
 
 .book-option {
   display: flex; align-items: flex-start; gap: 12px;
-  padding: 12px 14px; margin-bottom: 8px;
-  border: 1.5px solid rgba(32, 30, 29, 0.2); border-radius: 8px;
-  font-size: 15px; line-height: 1.45; color: var(--text-body); cursor: pointer;
-  transition: border-color var(--transition), background var(--transition);
+  padding: 13px 15px; margin-bottom: 8px;
+  border: 1.5px solid rgba(20, 18, 17, 0.2); border-radius: 12px;
+  font-size: 0.9375rem; line-height: 1.45; color: var(--fg-body); cursor: pointer;
+  transition: border-color var(--t), background var(--t);
 }
 .book-option input { margin-top: 3px; accent-color: var(--red); flex-shrink: 0; width: 16px; height: 16px; }
-.book-option:has(input:checked) { border-color: var(--charcoal); background: var(--bg-warm); color: var(--charcoal); font-weight: 600; }
+.book-option:has(input:checked) { border-color: var(--ink); background: var(--paper); color: var(--fg); font-weight: 600; }
 .book-option:has(input:focus-visible) { outline: 3px solid var(--red); outline-offset: 2px; }
 
 .book-prep-actions { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-.btn-link { background: none; border: none; font: inherit; font-size: 15px; font-weight: 700; color: var(--text-body); cursor: pointer; padding: 12px 4px; text-decoration: underline; text-underline-offset: 3px; }
-.btn-link:hover { color: var(--charcoal); }
-.book-prep-thanks { margin-top: 28px; padding: 14px 16px; background: var(--bg-warm); border-radius: 8px; font-weight: 700; font-size: 15px; }
+.btn-link { background: none; border: none; font: inherit; font-size: 0.9375rem; font-weight: 700; color: var(--fg-body); cursor: pointer; padding: 12px 4px; text-decoration: underline; text-underline-offset: 3px; }
+.btn-link:hover { color: var(--fg); }
+.book-prep-thanks { margin-top: 28px; padding: 14px 16px; background: var(--paper); border-radius: 12px; font-weight: 700; font-size: 0.9375rem; }
 
 /* --- Loading / no-JS --- */
-.book-loading { display: flex; align-items: center; gap: 12px; color: var(--text-body); font-size: 15px; padding: 24px 0; }
-.book-spinner { width: 20px; height: 20px; border: 3px solid var(--surface); border-top-color: var(--red); border-radius: 50%; animation: book-spin 0.8s linear infinite; }
+.book-loading { display: flex; align-items: center; gap: 12px; color: var(--fg-body); font-size: 0.9375rem; padding: 24px 0; }
+.book-spinner { width: 20px; height: 20px; border: 3px solid var(--paper-2); border-top-color: var(--red); border-radius: 50%; animation: book-spin 0.8s linear infinite; }
 @keyframes book-spin { to { transform: rotate(360deg); } }
-.book-noscript h2 { font-size: 22px; margin-bottom: 12px; }
-.book-noscript p { font-size: 16px; line-height: 1.8; color: var(--text-body); margin-bottom: 12px; }
+.book-noscript h2 { font-size: 1.375rem; margin-bottom: 12px; }
+.book-noscript p { font-size: 1rem; line-height: 1.8; color: var(--fg-body); margin-bottom: 12px; }
 
 @media (prefers-reduced-motion: reduce) {
-  .book-spinner { animation-duration: 2s !important; }
+  .book-spinner { animation-duration: 2s !important; animation-iteration-count: infinite !important; }
 }
 
 /* --- Responsive --- */
 @media (max-width: 1024px) {
-  .book { padding-top: 48px; }
-  .book-wrap { grid-template-columns: 1fr; gap: 40px; }
-  .book-intro h1 { font-size: 36px; }
+  .book-wrap { grid-template-columns: 1fr; gap: 36px; }
   .book-lead, .book-points { max-width: none; }
 }
 
-@media (max-width: 768px) {
-  .book { padding: 32px var(--side-pad) 56px; }
-  .book-intro h1 { font-size: 30px; }
-  .book-lead { font-size: 16px; margin-bottom: 24px; }
-  .book-points { margin-bottom: 28px; gap: 14px; }
-  .book-card { padding: 24px 20px; border-radius: 12px; }
-  .book-steps { font-size: 12px; gap: 6px; }
+@media (max-width: 720px) {
+  .book-card { border-radius: 20px; }
+  .book-steps { font-size: 0.75rem; gap: 6px; }
   .book-steps li { gap: 6px; }
-  .book-title { font-size: 22px; }
   .book-days { grid-template-columns: repeat(4, 1fr); gap: 8px; }
   .book-times { grid-template-columns: repeat(2, 1fr); }
   .book-ticket p { gap: 12px; }
   .book-done-actions { flex-direction: column; }
-  .book-done-actions .btn-primary, .book-done-actions .btn-secondary { width: 100%; min-height: 50px; }
+  .book-done-actions .btn-primary, .book-done-actions .btn-secondary { width: 100%; min-height: 52px; }
 }
 
 @media (prefers-contrast: more) {
-  .book-card { outline: 1px solid var(--charcoal); }
-  .book-field input, .book-field textarea, .book-field select, .book-day, .book-time, .book-option { border-color: var(--charcoal); }
+  .book-card { outline: 1px solid var(--ink); }
+  .book-field input, .book-field textarea, .book-field select, .book-day, .book-time, .book-option { border-color: var(--ink); }
 }
