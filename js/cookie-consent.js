@@ -25,6 +25,20 @@
     // Tell the first-party tracker (sdfm-tracker.js) so it starts or stops
     // recognising returning visitors straight away.
     window.dispatchEvent(new CustomEvent('sdfm:consent', { detail: value }));
+    updateGoogleConsent(value);
+  }
+
+  function updateGoogleConsent(value) {
+    var granted = value === 'accepted' ? 'granted' : 'denied';
+
+    if (typeof window.gtag === 'function') {
+      window.gtag('consent', 'update', {
+        analytics_storage: granted,
+        ad_storage: granted,
+        ad_user_data: granted,
+        ad_personalization: granted
+      });
+    }
   }
 
   function loadMetaPixel() {
@@ -107,8 +121,17 @@
 
     if (rejectBtn && banner) {
       rejectBtn.addEventListener('click', function () {
+        var previouslyAccepted = getConsent() === 'accepted';
+
         setConsent('rejected');
         banner.hidden = true;
+
+        // Previously loaded third-party scripts cannot
+        // reliably be unloaded from the current page.
+        // Reload with consent denied.
+        if (previouslyAccepted) {
+          window.location.reload();
+        }
       });
     }
 

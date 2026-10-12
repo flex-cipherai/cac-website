@@ -1,6 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Consent Mode v2: default consent -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      wait_for_update: 500
+    });
+
+    // Restore consent for returning visitors.
+    try {
+      if (localStorage.getItem('sdfm_cookie_consent') === 'accepted') {
+        gtag('consent', 'update', {
+          analytics_storage: 'granted',
+          ad_storage: 'granted',
+          ad_user_data: 'granted',
+          ad_personalization: 'granted'
+        });
+      }
+    } catch (e) {
+      // If storage is unavailable, consent remains denied.
+    }
+  </script>
+  <!-- End Google Consent Mode v2 -->
   <!-- Google Tag Manager -->
   <script>
   (function(w,d,s,l,i){
