@@ -478,6 +478,13 @@
         track('form_step_complete', { step: '2', duration_ms: Date.now() - state.stepStartedAt });
         track('form_submit', { lead_id: state.leadId, duration_ms: Date.now() - state.openedAt });
         adEvent('booked');
+
+        // Notify Google Tag Manager of a confirmed booking.
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'sdfm_booking_confirmed'
+        });
+
         state.booking = d;
         showDone(true);
       } else if (r.status === 409 && d.error === 'slot_unavailable') {
