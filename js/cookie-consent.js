@@ -26,6 +26,12 @@
     // recognising returning visitors straight away.
     window.dispatchEvent(new CustomEvent('sdfm:consent', { detail: value }));
     updateGoogleConsent(value);
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'sdfm_consent_update',
+      sdfm_cookie_consent: value
+    });
   }
 
   function updateGoogleConsent(value) {
@@ -104,6 +110,12 @@
     var manageLinks = document.querySelectorAll('[data-cookie-preferences]');
 
     var consent = getConsent();
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'sdfm_consent_ready',
+      sdfm_cookie_consent: consent || 'unknown'
+    });
 
     if (consent === 'accepted') {
       loadTrackingTags();
