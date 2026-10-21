@@ -1,5 +1,5 @@
 /* ============================================
-   SDFM GROUP LIMITED — AI Gap Check
+   SDFM GROUP LIMITED — Automation Scoper
    The free assessment tool on /ai-gap-check. Three stages: details, conversation, report.
    Everything goes through the gap-assessment Edge Function, which holds the AI key and the rules;
    this file only shows what comes back. All text from the server is written with textContent, never
@@ -112,7 +112,7 @@
     node.hidden = !html;
   }
 
-  var HELP = ' <a href="' + whatsappLink("Hi SDFM, I tried the AI Gap Check on your website and it didn't work.") + '" target="_blank" rel="noopener noreferrer">Message us on WhatsApp</a>.';
+  var HELP = ' <a href="' + whatsappLink("Hi SDFM, I tried the automation scoper on your website and it didn't work.") + '" target="_blank" rel="noopener noreferrer">Message us on WhatsApp</a>.';
 
   function setStage(name, noScroll) {
     state.stage = name;
@@ -245,7 +245,7 @@
           rate_limited: 'Too many tries from your network. Please wait a while, or' + HELP,
           email_limit: 'This email address has already used the check three times today. Try again tomorrow, or' + HELP,
           capacity: "We've reached today's limit for free checks. Please come back tomorrow, or" + HELP,
-          disabled: 'The AI Gap Check is paused right now. <a href="/contact">Contact us</a> and we will run it with you.'
+          disabled: 'The automation scoper is paused right now. <a href="/contact">Contact us</a> and we will run it with you.'
         }[d.error] || 'That did not go through, and nothing was lost on your side. Try again, or' + HELP;
         startFailed(msg);
       });
@@ -513,7 +513,7 @@
     var head = el('header', 'gcr-head');
     head.appendChild(scoreRing(report.readiness.score));
     var info = el('div', 'gcr-head-info');
-    info.appendChild(el('p', 'gcr-eyebrow', 'AI Gap Check report'));
+    info.appendChild(el('p', 'gcr-eyebrow', 'Automation Scoper report'));
     var title = el('h2', 'gcr-title', report.company.name);
     title.id = 'gc-report-title';
     title.tabIndex = -1;
@@ -614,12 +614,10 @@
     /* What is not in this report */
     var next = el('section', 'gcr-next');
     next.appendChild(el('h3', '', 'What this report does not include'));
-    next.appendChild(el('p', '', 'This report shows the gaps and what closing them is worth. It does not put the gaps in priority order, and it does not give a cost estimate for each opportunity. Both are part of our full AI gap assessment, where we also walk you or your leadership through the findings.'));
-    next.appendChild(el('p', 'gcr-next-ask', 'Want them? Book a session with us, or contact us directly.'));
+    next.appendChild(el('p', '', 'This report shows the gaps and what closing them is worth. It does not put the gaps in priority order, and it does not give a cost estimate for each opportunity.'));
+    next.appendChild(el('p', 'gcr-next-ask', 'Want those details? Contact us and we will take you through them.'));
     var btns = el('div', 'btn-row');
-    btns.appendChild(ctaButton('Book the full assessment', '/ai-gap-assessment#start', 'btn-primary btn-large', 'assessment'));
-    btns.appendChild(ctaButton('Contact us', '/contact', 'btn-secondary btn-large', 'contact'));
-    btns.appendChild(ctaButton('WhatsApp', whatsappLink('Hi SDFM, I just completed the AI Gap Check for ' + report.company.name + ' and would like the prioritised roadmap and cost estimates.'), 'btn-secondary btn-large', 'whatsapp', true));
+    btns.appendChild(ctaButton('Contact us', '/contact', 'btn-primary btn-large', 'contact'));
     next.appendChild(btns);
     reportBox.appendChild(next);
 
@@ -650,7 +648,7 @@
     btn.textContent = 'Preparing PDF…';
     var ready = window.SDFMGapPdf && (window.jspdf || window.jsPDF)
       ? Promise.resolve()
-      : loadScript('/js/vendor/jspdf.umd.min.js').then(function () { return loadScript('/js/gap-check-pdf.js?v=1'); });
+      : loadScript('/js/vendor/jspdf.umd.min.js').then(function () { return loadScript('/js/gap-check-pdf.js?v=3'); });
     ready.then(function () {
       return window.SDFMGapPdf.download(state.report, { name: state.name });
     }).then(function () {

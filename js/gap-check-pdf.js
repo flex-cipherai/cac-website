@@ -1,5 +1,5 @@
 /* ============================================
-   SDFM GROUP LIMITED — AI Gap Check PDF
+   SDFM GROUP LIMITED — Automation Scoper PDF
    Builds the downloadable report from the report JSON with jsPDF (js/vendor/jspdf.umd.min.js).
    Loaded only when the visitor presses Download, so the page itself stays light.
    window.SDFMGapPdf.download(report, who) -> Promise that resolves once the file has been saved.
@@ -104,7 +104,7 @@
       font('bold', 15); ink(WHITE); doc.text('SDFM Group', MARGIN, 20);
     }
     font('bold', 8); ink(EMBER); doc.setCharSpace(0.8);
-    doc.text('AI GAP CHECK', PAGE_W - MARGIN, 16, { align: 'right' });
+    doc.text('AUTOMATION SCOPER', PAGE_W - MARGIN, 16, { align: 'right' });
     doc.setCharSpace(0);
     font('bold', 22); ink(WHITE);
     doc.text(clean(report.company.name).slice(0, 44), MARGIN, 36);
@@ -226,7 +226,7 @@
     }
 
     // ── What this report does not include ────────────────────────
-    var boxLines = doc.splitTextToSize(clean('This report lists the gaps and the value of closing them. It does not put the gaps in priority order, and it does not include a cost estimate for each opportunity. Both are part of SDFM\'s full AI gap assessment, which also walks you or your leadership through the findings.'), CONTENT_W - 14);
+    var boxLines = doc.splitTextToSize(clean('This report lists the gaps and the value of closing them. It does not put the gaps in priority order, and it does not include a cost estimate for each opportunity. To get those details, contact us and we will take you through them.'), CONTENT_W - 14);
     var boxH = 30 + boxLines.length * 4.6;
     ensure(boxH + 6);
     y += 6;
@@ -238,9 +238,9 @@
     for (var b = 0; b < boxLines.length; b++) doc.text(boxLines[b], MARGIN + 8, y + 16 + b * 4.6);
     var by = y + 16 + boxLines.length * 4.6 + 3;
     font('bold', 9.5); ink(INK);
-    doc.text('Book the full assessment:  sdfmgroup.com/ai-gap-assessment', MARGIN + 8, by);
+    doc.text('Contact us:  sdfmgroup.com/contact', MARGIN + 8, by);
     font('normal', 9.5); ink(BODY);
-    doc.text(clean('Or contact us directly:  ' + CONTACT_EMAIL + '  |  WhatsApp ' + CONTACT_PHONE), MARGIN + 8, by + 5.2);
+    doc.text(clean('Or reach us directly:  ' + CONTACT_EMAIL + '  |  WhatsApp ' + CONTACT_PHONE), MARGIN + 8, by + 5.2);
     y += boxH + 4;
 
     // ── Notes ────────────────────────────────────────────────────
@@ -260,7 +260,7 @@
 
   function fileName(report) {
     var slug = String(report.company.name || 'report').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40) || 'report';
-    return 'sdfm-ai-gap-check-' + slug + '.pdf';
+    return 'sdfm-automation-scoper-' + slug + '.pdf';
   }
 
   window.SDFMGapPdf = {

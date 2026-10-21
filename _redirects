@@ -1,7 +1,5 @@
 # Pretty URLs: the .html address redirects to the extensionless one
 /index.html               /                    301!
-/ai-gap-assessment.html   /ai-gap-assessment   301!
-/diy-guide.html           /diy-guide           301!
 /industry-solutions.html  /industry-solutions  301!
 /custom-builds.html       /custom-builds       301!
 /contact.html             /contact             301!
@@ -14,5 +12,13 @@
 /how-it-works.html        /                    301!
 /faq                      /                    301!
 /faq.html                 /                    301!
-/book                     /ai-gap-assessment   301!
-/book.html                /ai-gap-assessment   301!
+/book                     /ai-gap-check   301!
+/book.html                /ai-gap-check   301!
+
+# Retired paths: the free automation scoper replaced the guide and the paid assessment page
+/ai-gap-assessment       /ai-gap-check        301!
+/ai-gap-assessment.html  /ai-gap-check        301!
+/diy-guide               /ai-gap-check        301!
+/diy-guide.html          /ai-gap-check        301!
+/thanks/assessment       /ai-gap-check        301!
+/thanks/guide            /ai-gap-check        301!

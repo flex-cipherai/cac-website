@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var header = document.querySelector('.site-header');
   var toggle = document.querySelector('.menu-toggle');
   var menu = document.getElementById('site-nav');
-  var mqMobile = window.matchMedia('(max-width: 860px)');
+  var mqMobile = window.matchMedia('(max-width: 1040px)');
 
   // --- Header: hairline appears once content scrolls underneath ---
   if (header) {
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   // --- Path tabs (home page). All panels are in the HTML; once this runs the inactive ones are hidden. ---
-  // Arrow keys, Home and End move between tabs. A bare hash (#assessment, #guide, #industry, #custom) opens one.
+  // Arrow keys, Home and End move between tabs. A bare hash (#assessment, #industry, #custom) opens one.
   document.querySelectorAll('[data-tabs]').forEach(function (root) {
     var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
     if (!tabs.length) return;

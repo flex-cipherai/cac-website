@@ -1,6 +1,6 @@
 /* ============================================
    SDFM GROUP LIMITED — Lead forms
-   One script for the five forms (assessment, guide, industry, custom, contact).
+   One script for the three forms (industry, custom, contact).
    A form is <form class="lead-form" data-offer="...">. Every submission goes to the
    website-lead Edge Function, which saves it as an inquiry and sends the emails;
    on success the visitor is sent to /thanks/<offer>.
@@ -17,13 +17,6 @@
   var LEAD_FLAG = 'sdfm_lead_offer';
   var ATTR_KEY = 'sdfm_attribution';
 
-  // Healthcare: assessment, industry and custom builds cannot be sold (those systems need DHA certification).
-  // The guide and the contact form still go through, tagged healthcare.
-  var HEALTHCARE_BLOCKS = { assessment: true, industry: true, custom: true };
-  var HEALTHCARE_NOTE = "We don't currently build for healthcare, because those systems need DHA certification";
-
-  var FEES = { '1-5': 15000, '6-15': 35000, '16-50': 75000, '51-100': 150000 };
-
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
   // Kenyan numbers: +254 7xx, 254 7xx, 07xx, 01xx (spaces, dashes and brackets allowed). Saved as +254...
@@ -32,8 +25,6 @@
     var m = /^(?:\+254|254|0)([17]\d{8})$/.exec(s);
     return m ? '+254' + m[1] : null;
   }
-
-  function formatKes(n) { return 'KES ' + n.toLocaleString('en-US'); }
 
   function track(type, props) {
     try {
@@ -62,9 +53,6 @@
     var submitBtn = form.querySelector('button[type="submit"]');
     var submitLabel = submitBtn ? submitBtn.textContent : '';
     var formError = form.querySelector('[data-form-error]');
-    var healthNote = form.querySelector('[data-health-note]');
-    var feeNote = form.querySelector('[data-fee-note]');
-    var blocksHealthcare = !!HEALTHCARE_BLOCKS[offer];
     var sending = false;
 
     var fields = {
@@ -115,31 +103,6 @@
       formError.hidden = !html;
     }
 
-    /* ---- Healthcare ---- */
-    function updateHealthcare() {
-      var isHealth = el.sector && el.sector.value === 'healthcare';
-      if (healthNote) {
-        healthNote.textContent = isHealth ? HEALTHCARE_NOTE : '';
-        healthNote.hidden = !isHealth;
-      }
-      if (submitBtn) submitBtn.disabled = sending || (isHealth && blocksHealthcare);
-    }
-
-    /* ---- Assessment fee + price table ---- */
-    function updateFee() {
-      if (offer !== 'assessment' || !el.staff_band) return;
-      var band = el.staff_band.value;
-      Array.prototype.forEach.call(document.querySelectorAll('[data-band]'), function (row) {
-        row.classList.toggle('is-selected', !!band && row.getAttribute('data-band') === band);
-      });
-      if (!feeNote) return;
-      if (!band) { feeNote.hidden = true; feeNote.textContent = ''; return; }
-      feeNote.hidden = false;
-      feeNote.textContent = FEES[band]
-        ? 'Your assessment fee: ' + formatKes(FEES[band])
-        : 'Your assessment fee: from KES 250,000, quoted after a scoping call';
-    }
-
     /* ---- Events ---- */
     Array.prototype.forEach.call(form.elements, function (input) {
       if (!input.name || input.type === 'hidden' || input.type === 'submit') return;
@@ -148,8 +111,6 @@
         if (!started) { started = true; track('lead_form_start', { offer: offer }); }
         if (fields[input.name]) setError(input.name, '');
         showFormError('');
-        if (input.name === 'sector') updateHealthcare();
-        if (input.name === 'staff_band') updateFee();
       });
       input.addEventListener('blur', function () {
         if (fields[input.name] && input.type !== 'checkbox' && (input.value || input.getAttribute('aria-invalid'))) validate(input.name);
@@ -163,9 +124,6 @@
       });
     });
 
-    updateHealthcare();
-    updateFee();
-
     /* ---- Submit ---- */
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -174,7 +132,6 @@
 
       var firstBad = validate();
       if (firstBad) { el[firstBad].focus(); return; }
-      if (blocksHealthcare && el.sector && el.sector.value === 'healthcare') { updateHealthcare(); return; }
 
       sending = true;
       submitBtn.disabled = true;
@@ -210,7 +167,7 @@
     function fail(html) {
       sending = false;
       submitBtn.textContent = submitLabel;
-      updateHealthcare();
+      submitBtn.disabled = false;
       showFormError(html);
     }
 

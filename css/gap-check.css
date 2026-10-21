@@ -265,18 +265,15 @@
 /* --- Info sections --- */
 .gc-info { background: var(--white); padding: clamp(48px, 6vw, 88px) 0; }
 .gc-info-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(28px, 5vw, 72px); }
-.gc-info h2, .gc-faq h2 { font-size: clamp(1.4rem, 1.2rem + 0.9vw, 1.9rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 14px; }
+.gc-info h2 { font-size: clamp(1.4rem, 1.2rem + 0.9vw, 1.9rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 14px; }
 .gc-info p { color: var(--fg-body); max-width: 56ch; }
 .gc-info p a { font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
 .gc-small { margin-top: 12px; font-size: 0.9375rem; color: var(--fg-muted) !important; }
-.gc-faq { background: var(--paper); padding: clamp(48px, 6vw, 88px) 0; }
-.gc-faq .faq-question { min-height: 60px; padding: 18px 0; font-size: 1.0625rem; }
-.gc-faq .faq-answer-inner a { font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
 @media (max-width: 760px) { .gc-info-grid { grid-template-columns: minmax(0, 1fr); } }
 
 /* --- Printing the page (fallback when a PDF cannot be built): the report only --- */
 @media print {
-  .site-header, .page-hero, .gc-steps, .gc-info, .gc-faq, .other-ways, .footer, .cookie-banner, .gcr-actions, .gcr-notes .gc-linkbtn, .skip-link { display: none !important; }
+  .site-header, .page-hero, .gc-steps, .gc-info, .other-ways, .footer, .cookie-banner, .gcr-actions, .gcr-notes .gc-linkbtn, .skip-link { display: none !important; }
   .gc-wrap { padding: 0; background: #fff; }
   .gc { border: 0; box-shadow: none; max-width: none; }
   .gc-stage[data-panel="details"], .gc-stage[data-panel="chat"], .gc-stage[data-panel="working"] { display: none !important; }

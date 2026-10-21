@@ -75,7 +75,7 @@
 
   <script>document.documentElement.classList.add('js');</script>
   <link rel="preload" href="/assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/styles.css?v=3">
+  <link rel="stylesheet" href="/css/styles.css?v=5">
   <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
   <link rel="icon" type="image/png" href="/assets/logo.png">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -169,7 +169,7 @@
           data-endpoint="https://kvlietqeafjtwojkqnqa.supabase.co"
           data-key="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt2bGlldHFlYWZqdHdvamtxbnFhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgzNzM0MDQsImV4cCI6MjEwMzk0OTQwNH0.S_TbT7Fnm83PCdrUoiNksgvtZaSDaDjoALnJzA8NoGk"></script>
 </head>
-<body class="has-mobile-cta">
+<body>
   <!-- Google Tag Manager (noscript) -->
   <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-58B8ZQVH"
@@ -187,8 +187,7 @@
       <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span></span><span></span><span></span></button>
       <nav aria-label="Primary">
         <ul class="nav-links" id="site-nav">
-          <li><a href="/ai-gap-assessment">AI gap assessment</a></li>
-          <li><a href="/diy-guide">Free guide</a></li>
+          <li><a href="/ai-gap-check">Automation scoper</a></li>
           <li><a href="/industry-solutions">Industry solutions</a></li>
           <li><a href="/custom-builds">Custom builds</a></li>
           <li><a href="/contact" class="nav-cta" data-cta-path="contact" data-sdfm-cta data-sdfm-label="nav_contact">Contact us</a></li>
@@ -209,13 +208,11 @@
           <p class="lead">SDFM Group reviews how your business runs, shows you where AI and automation will save time and money, and builds the systems to get you there. Choose the path that fits where you are.</p>
           <div class="hero-actions">
             <div class="btn-row">
-              <a href="/ai-gap-assessment#start" class="btn-primary btn-large" data-cta-path="assessment" data-sdfm-cta data-sdfm-label="hero_assessment">Book an AI gap assessment<svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-              <a href="/diy-guide#start" class="btn-secondary btn-large" data-sdfm-cta data-sdfm-label="hero_guide">Get the free guide</a>
+              <a href="/ai-gap-check" class="btn-primary btn-large" data-cta-path="gapcheck" data-sdfm-cta data-sdfm-label="hero_gapcheck">Try the automation scoper<svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             </div>
             <p class="hero-text-link"><span>Looking for software for your industry?</span> <a href="/industry-solutions" data-sdfm-cta data-sdfm-label="hero_industry">See industry solutions</a></p>
-            <p class="hero-text-link"><span>Want a quick read on your business first?</span> <a href="/ai-gap-check" data-sdfm-cta data-sdfm-label="hero_gapcheck">Try the free AI gap check</a></p>
           </div>
-          <p class="hero-facts">Assessments from KES 15,000, priced by staff size. Fee credited in full against a custom build. Based in Nairobi, working across Kenya.</p>
+          <p class="hero-facts">Based in Nairobi, working across Kenya.</p>
         </div>
         <figure class="hero-visual"><img src="/assets/hero-operations-map.webp" width="1480" height="1017" alt="Map of a business as connected tiles, with one highlighted path leading to the single process where AI will help" fetchpriority="high"></figure>
       </div>
@@ -242,17 +239,13 @@
       <div class="container">
         <div class="paths-intro reveal">
           <div class="eyebrow">Choose your path</div>
-          <h2 class="h2">Four ways to work with us. Pick the one that matches where you are.</h2>
+          <h2 class="h2">Three ways to work with us. Pick the one that matches where you are.</h2>
         </div>
         <div class="reveal" data-tabs style="--d:.06s">
           <div class="tablist" role="tablist" aria-label="Choose your path">
             <button type="button" role="tab" class="tab" id="tab-assessment" data-tab="assessment" aria-controls="panel-assessment" aria-selected="true" tabindex="0">
               <span class="tab-label">Awareness gap</span>
               <span class="tab-title">I don't know where to start</span>
-            </button>
-            <button type="button" role="tab" class="tab" id="tab-guide" data-tab="guide" aria-controls="panel-guide" aria-selected="false" tabindex="-1">
-              <span class="tab-label">Awareness gap</span>
-              <span class="tab-title">I'd like to try it myself first</span>
             </button>
             <button type="button" role="tab" class="tab" id="tab-industry" data-tab="industry" aria-controls="panel-industry" aria-selected="false" tabindex="-1">
               <span class="tab-label">Expertise gap</span>
@@ -267,28 +260,17 @@
             <div>
               <div class="tab-gap">Awareness gap</div>
               <h3>I don't know where to start</h3>
-              <p>We review how your business actually works, find where AI and systemization would help, and tell you what to do about it. You get a written report, a roadmap in priority order, a cost estimate for each opportunity, and a walkthrough with your leadership.</p>
-              <p class="tab-terms">From KES 15,000, priced by number of staff. The fee is credited in full against a custom build.</p>
-              <a href="/ai-gap-assessment" class="btn-primary btn-large" data-cta-path="assessment" data-sdfm-cta data-sdfm-label="paths_assessment">See the assessment<svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <p>Talk through how your business runs with our automation scoper. In about ten minutes you get a gap report showing where AI and systemization would help, and the projected return of closing the gaps.</p>
+              <p class="tab-terms">Free. No call needed, and you keep the PDF.</p>
+              <a href="/ai-gap-check" class="btn-primary btn-large" data-cta-path="gapcheck" data-sdfm-cta data-sdfm-label="paths_gapcheck">Try the automation scoper<svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             </div>
-            <figure class="tab-visual"><img src="/assets/path-assessment.webp" width="1200" height="800" alt="A route across a map with waypoints that grow in size, showing opportunities found in priority order" loading="lazy" decoding="async"></figure>
-          </div>
-          <div role="tabpanel" class="tab-panel theme-dark" id="panel-guide" aria-labelledby="tab-guide" tabindex="0">
-            <div>
-              <div class="tab-gap">Awareness gap</div>
-              <h3>I'd like to try it myself first</h3>
-              <p>A free PDF that walks you through running your own AI gap assessment, so you can see where AI and systemization could help at your own pace.</p>
-              <p class="tab-terms">Free. We ask for your name and contact details.</p>
-              <a href="/diy-guide" class="btn-primary btn-large" data-cta-path="guide" data-sdfm-cta data-sdfm-label="paths_guide">Get the free guide<svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            </div>
-            <figure class="tab-visual"><img src="/assets/path-guide.webp" width="1200" height="800" alt="A stack of checklist pages with ticked boxes, representing a self-service assessment guide" loading="lazy" decoding="async"></figure>
+            <figure class="tab-visual"><img src="/assets/path-assessment.webp" width="1200" height="800" alt="A floor plan with a dotted route linking waypoints, showing where opportunities sit across a business" loading="lazy" decoding="async"></figure>
           </div>
           <div role="tabpanel" class="tab-panel theme-dark" id="panel-industry" aria-labelledby="tab-industry" tabindex="0">
             <div>
               <div class="tab-gap">Expertise gap</div>
               <h3>I need a system built for my industry</h3>
-              <p>We build complete systems for one industry and sell them by subscription, so you get a ready-made system instead of hiring a developer. First available: a management system for security firms.</p>
-              <p class="tab-terms">Monthly or annual subscription, priced by number of user groups.</p>
+              <p>We build end-to-end systems for specific industries so you get a ready-made system instead of hiring a developer.</p>
               <a href="/industry-solutions" class="btn-primary btn-large" data-cta-path="industry" data-sdfm-cta data-sdfm-label="paths_industry">See industry solutions<svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             </div>
             <figure class="tab-visual"><img src="/assets/path-industry.webp" width="1200" height="800" alt="One system dashboard in front of identical copies behind it, showing one product used by many firms" loading="lazy" decoding="async"></figure>
@@ -298,12 +280,11 @@
               <div class="tab-gap">Implementation gap</div>
               <h3>My workflow is too specific for ready-made tools</h3>
               <p>We build a custom system around how your business works, quoted per project from the roadmap estimates.</p>
-              <p class="tab-terms">If we completed your assessment, its fee is credited in full.</p>
               <a href="/custom-builds" class="btn-primary btn-large" data-cta-path="custom" data-sdfm-cta data-sdfm-label="paths_custom">Explore custom builds<svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             </div>
             <figure class="tab-visual"><img src="/assets/path-custom.webp" width="1200" height="800" alt="A custom-shaped red tile fitting into a gap in a grid of standard tiles" loading="lazy" decoding="async"></figure>
           </div>
-          <p class="paths-help">Not sure which path fits? Start with the free guide or an assessment. Both lead naturally to a custom build, and the assessment fee is credited against it.</p>
+          <p class="paths-help">Not sure which path fits? Start with the automation scoper. It shows where AI and systems would help, and you can take it from there.</p>
         </div>
       </div>
     </section>
@@ -321,9 +302,7 @@
         <div>
           <h2>Paths</h2>
           <ul>
-            <li><a href="/ai-gap-check">Free AI gap check</a></li>
-            <li><a href="/ai-gap-assessment">AI gap assessment</a></li>
-            <li><a href="/diy-guide">Free guide</a></li>
+            <li><a href="/ai-gap-check">Automation scoper</a></li>
             <li><a href="/industry-solutions">Industry solutions</a></li>
             <li><a href="/custom-builds">Custom builds</a></li>
             <li><a href="/contact">Contact</a></li>
@@ -354,11 +333,6 @@
   </footer>
   <!-- ===== /FOOTER ===== -->
 
-  <!-- ===== MOBILE ACTION BAR (phones only) ===== -->
-  <div class="mobile-cta" role="region" aria-label="Quick actions">
-    <a href="/ai-gap-assessment#start" class="btn-primary" data-cta-path="assessment" data-sdfm-cta data-sdfm-label="mobile_start">Book an AI gap assessment</a>
-    <a href="https://wa.me/254757230579?text=Hi%20SDFM%2C%20I'd%20like%20to%20ask%20about%20working%20with%20you." class="btn-secondary btn-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" data-sdfm-cta data-sdfm-label="mobile_whatsapp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2A9.93 9.93 0 0 0 3.6 17.07L2 22l5.06-1.57A9.94 9.94 0 1 0 12.04 2zm0 1.8a8.14 8.14 0 1 1-4.3 15.07l-.31-.18-3 .93.98-2.92-.2-.32A8.14 8.14 0 0 1 12.04 3.8zm-3.1 4.1c-.17 0-.45.06-.69.32-.24.26-.9.88-.9 2.15s.92 2.5 1.05 2.67c.13.17 1.8 2.86 4.4 3.9 2.17.86 2.6.69 3.07.65.47-.04 1.5-.61 1.71-1.2.21-.6.21-1.1.15-1.2-.06-.11-.23-.17-.49-.3-.26-.13-1.5-.74-1.74-.83-.23-.09-.4-.13-.57.13-.17.26-.65.83-.8 1-.15.17-.3.19-.56.06-.26-.13-1.08-.4-2.06-1.27-.76-.68-1.28-1.52-1.43-1.78-.15-.26-.02-.4.11-.52.12-.12.26-.3.39-.45.13-.15.17-.26.26-.43.09-.17.04-.32-.02-.45-.06-.13-.57-1.4-.78-1.91-.2-.5-.42-.43-.57-.44h-.49z"/></svg><span>WhatsApp</span></a>
-  </div>
 
   <!-- ===== COOKIE CONSENT BANNER ===== -->
   <div class="cookie-banner" id="cookie-banner" role="region" aria-label="Cookie consent" hidden>
@@ -369,7 +343,7 @@
     </div>
   </div>
 
-  <script src="/js/main.js?v=3"></script>
+  <script src="/js/main.js?v=5"></script>
   <script src="/js/cookie-consent.js"></script>
 </body>
 </html>

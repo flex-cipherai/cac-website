@@ -19,10 +19,7 @@
 /sitemap.xml
   Cache-Control: public, max-age=3600
 
-# Thank-you pages and the guide PDF stay out of search
+# Thank-you pages stay out of search
 /thanks/*
   X-Robots-Tag: noindex, follow
 
-/downloads/*
-  X-Robots-Tag: noindex, nofollow
-  Cache-Control: public, max-age=3600

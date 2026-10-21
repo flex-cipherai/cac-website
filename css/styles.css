@@ -252,7 +252,7 @@ ul, ol { list-style: none; }
 
 .nav-links { display: flex; align-items: center; gap: 4px; }
 .nav-links a {
-  position: relative; display: inline-flex; align-items: center;
+  white-space: nowrap; position: relative; display: inline-flex; align-items: center;
   padding: 10px 14px; border-radius: 10px;
   font-size: 0.9375rem; font-weight: 500; color: #D9D4CE;
 }
@@ -543,7 +543,7 @@ ul, ol { list-style: none; }
   .footer-brand { grid-column: 1 / -1; }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 1040px) {
   /* The open menu is position:fixed, so its <nav> holds no space: drop the gap and
      push the toggle to the right edge. */
   .header-inner { gap: 0; }
@@ -607,8 +607,8 @@ ul, ol { list-style: none; }
 /* The nav-cta is the current page on /contact: no underline under a button */
 .nav-links .nav-cta[aria-current="page"]::after { display: none; }
 
-/* Four links plus the button need a little room between 860px and 1120px */
-@media (min-width: 861px) and (max-width: 1120px) {
+/* Five links plus the button need a little room between 1041px and 1240px */
+@media (min-width: 1041px) and (max-width: 1240px) {
   .nav-links { gap: 0; }
   .nav-links a { padding: 10px 9px; font-size: 0.875rem; }
   .nav-links a[aria-current="page"]::after { left: 9px; right: 9px; }
@@ -637,6 +637,12 @@ ul, ol { list-style: none; }
   box-shadow: 0 50px 90px -30px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(0, 0, 0, 0.4);
 }
 .hero-visual img { width: 100%; height: auto; }
+/* Desktop: the image fills the hero's right column instead of floating in it */
+@media (min-width: 1025px) {
+  .hero-grid { grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); }
+  .hero-visual { aspect-ratio: 5 / 4; }
+  .hero-visual img { height: 100%; object-fit: cover; }
+}
 
 /* --- Problem: gaps carry mono labels, not numbers --- */
 .gaps.labelled li { display: block; }
@@ -649,7 +655,7 @@ ul, ol { list-style: none; }
 .paths-intro { max-width: 760px; margin-bottom: clamp(32px, 4vw, 48px); }
 .paths-intro .h2 { margin-bottom: 0; }
 
-.tablist { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 20px; }
+.tablist { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 20px; }
 html:not(.js) .tablist { display: none; }
 .tab {
   display: grid; gap: 8px; align-content: start; text-align: left; font: inherit;
@@ -849,6 +855,11 @@ html:not(.js) .tablist { display: none; }
 .product-body { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; padding: clamp(24px, 3vw, 40px); }
 .product-body h3 { font-size: clamp(1.35rem, 1.2rem + 0.6vw, 1.75rem); letter-spacing: -0.025em; line-height: 1.2; }
 .product-body p { color: var(--fg-body); }
+.soon-card {
+  padding: clamp(28px, 4vw, 48px); background: var(--white); border: 1px dashed var(--rule-strong); border-radius: var(--r-lg);
+}
+.soon-card h3 { font-size: clamp(1.35rem, 1.2rem + 0.6vw, 1.75rem); letter-spacing: -0.025em; line-height: 1.2; margin-bottom: 8px; }
+.soon-card p { color: var(--fg-body); max-width: 52ch; }
 .chip {
   display: inline-flex; align-items: center; gap: 8px; padding: 5px 11px; border-radius: 999px;
   font-family: var(--mono); font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
@@ -895,11 +906,3 @@ html:not(.js) .tablist { display: none; }
 /* Contact details sit in a half-width column: keep long values on their card */
 .path-content .contact-card:not(.primary) .contact-value { font-size: clamp(1rem, 0.9rem + 0.35vw, 1.125rem); }
 
-/* Guide download not ready yet: the button links to this note, which shows when targeted (works without JavaScript).
-   When the PDF is ready, point the button at /downloads/ai-gap-assessment-guide.pdf and delete the note. */
-.pending-note {
-  display: none; max-width: 62ch; margin-top: 18px; padding: 14px 16px; border-radius: 10px;
-  font-size: 1rem; line-height: 1.5; font-weight: 600; color: #fff;
-  background: rgba(255, 90, 63, 0.14); border-left: 3px solid var(--ember);
-}
-.pending-note:target { display: block; }

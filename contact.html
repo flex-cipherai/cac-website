@@ -75,7 +75,7 @@
 
   <script>document.documentElement.classList.add('js');</script>
   <link rel="preload" href="/assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/styles.css?v=3">
+  <link rel="stylesheet" href="/css/styles.css?v=5">
   <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
   <link rel="icon" type="image/png" href="/assets/logo.png">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -153,8 +153,7 @@
       <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span></span><span></span><span></span></button>
       <nav aria-label="Primary">
         <ul class="nav-links" id="site-nav">
-          <li><a href="/ai-gap-assessment">AI gap assessment</a></li>
-          <li><a href="/diy-guide">Free guide</a></li>
+          <li><a href="/ai-gap-check">Automation scoper</a></li>
           <li><a href="/industry-solutions">Industry solutions</a></li>
           <li><a href="/custom-builds">Custom builds</a></li>
           <li><a href="/contact" class="nav-cta" aria-current="page" data-cta-path="contact" data-sdfm-cta data-sdfm-label="nav_contact">Contact us</a></li>
@@ -222,7 +221,7 @@
             <div class="lead-grid">
           <div class="lead-field full">
             <label for="contact-interest">What are you interested in?</label>
-            <select id="contact-interest" name="interest" required aria-describedby="contact-interest-err"><option value="">Choose one</option><option value="assessment">AI gap assessment</option><option value="guide">Free guide</option><option value="industry">Industry software</option><option value="custom">Custom build</option><option value="other">Something else</option></select>
+            <select id="contact-interest" name="interest" required aria-describedby="contact-interest-err"><option value="">Choose one</option><option value="assessment">Priorities and cost estimates after the scoper</option><option value="industry">Industry software</option><option value="custom">Custom build</option><option value="other">Something else</option></select>
             <p class="field-error" id="contact-interest-err" data-error-for="interest" hidden></p>
           </div>
           <div class="lead-field">
@@ -250,7 +249,6 @@
             <textarea id="contact-message" name="message" rows="5" required aria-describedby="contact-message-err"></textarea>
             <p class="field-error" id="contact-message-err" data-error-for="message" hidden></p>
           </div>
-              <p class="health-note" data-health-note role="status" hidden></p>
               <div class="lead-field full">
                 <label class="lead-consent"><input type="checkbox" name="consent" required aria-describedby="contact-consent-err"><span>I agree that SDFM Group may contact me about this request, as set out in the <a href="/privacy-policy.html" target="_blank" rel="noopener">privacy policy</a>.</span></label>
                 <p class="field-error" id="contact-consent-err" data-error-for="consent" hidden></p>
@@ -268,15 +266,10 @@
       <div class="container">
         <h2 id="other-ways-h">Other ways to work with us</h2>
         <div class="ways">
-          <a class="card way" href="/ai-gap-assessment">
+          <a class="card way" href="/ai-gap-check">
             <span class="tab-label">Awareness gap</span>
             <h3>I don't know where to start</h3>
-            <span class="go">See the assessment<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </a>
-          <a class="card way" href="/diy-guide">
-            <span class="tab-label">Awareness gap</span>
-            <h3>I'd like to try it myself first</h3>
-            <span class="go">Get the free guide<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            <span class="go">Try the automation scoper<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </a>
           <a class="card way" href="/industry-solutions">
             <span class="tab-label">Expertise gap</span>
@@ -305,9 +298,7 @@
         <div>
           <h2>Paths</h2>
           <ul>
-            <li><a href="/ai-gap-check">Free AI gap check</a></li>
-            <li><a href="/ai-gap-assessment">AI gap assessment</a></li>
-            <li><a href="/diy-guide">Free guide</a></li>
+            <li><a href="/ai-gap-check">Automation scoper</a></li>
             <li><a href="/industry-solutions">Industry solutions</a></li>
             <li><a href="/custom-builds">Custom builds</a></li>
             <li><a href="/contact">Contact</a></li>
@@ -347,8 +338,8 @@
     </div>
   </div>
 
-  <script src="/js/main.js?v=3"></script>
-  <script src="/js/forms.js?v=3"></script>
+  <script src="/js/main.js?v=5"></script>
+  <script src="/js/forms.js?v=4"></script>
   <script src="/js/cookie-consent.js"></script>
 </body>
 </html>
