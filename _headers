@@ -13,6 +13,9 @@
 /js/*
   Cache-Control: public, max-age=86400
 
+/llms.txt
+  Cache-Control: public, max-age=3600
+
 /robots.txt
   Cache-Control: public, max-age=3600
 

@@ -1,0 +1,14 @@
+# SDFM Group Limited
+
+> SDFM Group is a Nairobi-based company that helps Kenyan businesses find where AI and automation will pay off, then builds the systems. It offers a free automation scoper, industry software and custom software builds.
+
+## Services
+
+- [Automation Scoper](https://sdfmgroup.com/ai-gap-check): a free, conversational assessment (about 10 minutes) that produces a gap report, a readiness score and the projected return of closing the gaps, with a PDF to keep.
+- [Industry software](https://sdfmgroup.com/industry-solutions): end-to-end, ready-made systems for specific industries, so a business does not need to hire a developer. The first systems are coming soon.
+- [Custom builds](https://sdfmgroup.com/custom-builds): custom software built around a business's own workflow, quoted per project after scoping, delivered in milestones, with training and support.
+
+## Company
+
+- [Contact](https://sdfmgroup.com/contact): WhatsApp, phone, email and an enquiry form.
+- [Privacy policy](https://sdfmgroup.com/privacy-policy): how personal data is collected and used, under Kenya's Data Protection Act, the GDPR and the CCPA.
