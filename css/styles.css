@@ -639,8 +639,16 @@ ul, ol { list-style: none; }
 .hero-visual img { width: 100%; height: auto; }
 /* Desktop: the image fills the hero's right column instead of floating in it */
 @media (min-width: 1025px) {
-  .hero-grid { grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); }
-  .hero-visual { aspect-ratio: 5 / 4; }
+  .hero-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center;
+    padding-top: clamp(24px, 4.5vh, 52px); padding-bottom: clamp(32px, 5.5vh, 64px);
+  }
+  .hero .pill { margin-bottom: 20px; }
+  .hero h1.h1-wide { font-size: clamp(2.4rem, 0.9rem + 2.7vw, 3.5rem); line-height: 1.06; max-width: 19ch; margin-bottom: 18px; }
+  .hero .lead { font-size: 1.0625rem; line-height: 1.6; margin-bottom: 26px; max-width: 50ch; }
+  .hero-actions { gap: 14px; }
+  .hero-facts { margin-top: 20px; padding-top: 14px; }
+  .hero-visual { aspect-ratio: 4 / 3; max-height: min(480px, 60vh); justify-self: end; width: 100%; }
   .hero-visual img { height: 100%; object-fit: cover; }
 }
 
@@ -697,8 +705,9 @@ html:not(.js) .tablist { display: none; }
   letter-spacing: -0.03em; line-height: 1.12; margin-bottom: 14px;
 }
 .tab-panel p { color: var(--fg-body); max-width: 52ch; }
+.tab-panel .btn-primary { margin-top: 28px; }
 .tab-terms {
-  margin: 22px 0 24px; padding-top: 16px; border-top: 1px solid var(--rule);
+  margin: 22px 0 0; padding-top: 16px; border-top: 1px solid var(--rule);
   font-size: 0.9375rem; font-weight: 600; color: #fff; max-width: 52ch;
 }
 .tab-visual { margin: 0; border-radius: var(--r-md); overflow: hidden; background: #EDECEC; border: 1px solid rgba(255, 255, 255, 0.12); }
