@@ -259,8 +259,11 @@
   }
 
   function fileName(report) {
-    var slug = String(report.company.name || 'report').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40) || 'report';
-    return 'sdfm-automation-scoper-' + slug + '.pdf';
+    // e.g. SDFM-Automation-Scoper-Report-Acme-Ltd-2026-10-21.pdf
+    var company = String(report.company.name || '').replace(/[^A-Za-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40);
+    var when = new Date(report.generated_at);
+    var date = isNaN(when.getTime()) ? '' : when.toISOString().slice(0, 10);
+    return ['SDFM-Automation-Scoper-Report', company, date].filter(Boolean).join('-') + '.pdf';
   }
 
   window.SDFMGapPdf = {

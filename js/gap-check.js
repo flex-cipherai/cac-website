@@ -197,7 +197,7 @@
 
     sending = true;
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Starting…';
+    submitBtn.textContent = 'Reviewing your website…';
 
     var attr = attribution();
     var payload = {
@@ -244,7 +244,6 @@
         var msg = {
           rate_limited: 'Too many tries from your network. Please wait a while, or' + HELP,
           email_limit: 'This email address has already used the check three times today. Try again tomorrow, or' + HELP,
-          capacity: "We've reached today's limit for free checks. Please come back tomorrow, or" + HELP,
           disabled: 'The automation scoper is paused right now. <a href="/contact">Contact us</a> and we will run it with you.'
         }[d.error] || 'That did not go through, and nothing was lost on your side. Try again, or' + HELP;
         startFailed(msg);
