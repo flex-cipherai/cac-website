@@ -58,7 +58,7 @@
     return n;
   }
 
-  function kes(n) { return 'KES ' + Math.round(Number(n) || 0).toLocaleString('en-US'); }
+  function money(n, currency) { return (currency || 'KES') + ' ' + Math.round(Number(n) || 0).toLocaleString('en-US'); }
 
   function track(type, props) {
     try {
@@ -152,9 +152,10 @@
 
   var validators = {
     full_name: function (v) { return v.trim().length >= 2 ? '' : 'Enter your full name.'; },
-    email: function (v) { return EMAIL_RE.test(v.trim()) ? '' : 'Enter your work email, like name@company.co.ke'; },
+    email: function (v) { return EMAIL_RE.test(v.trim()) ? '' : 'Enter your work email, like name@company.com'; },
     company_name: function (v) { return v.trim() ? '' : 'Enter your company name.'; },
-    website: function (v) { var s = v.trim(); return s && /\./.test(s) && !/\s/.test(s) ? '' : 'Enter your website, like www.company.co.ke'; },
+    website: function (v) { var s = v.trim(); return s && /\./.test(s) && !/\s/.test(s) ? '' : 'Enter your website, like www.company.com'; },
+    currency: function (v) { return v ? '' : 'Choose the currency for your report.'; },
     consent: function () { return form.elements.consent.checked ? '' : 'Tick the box to continue.'; }
   };
 
@@ -205,6 +206,7 @@
       email: form.elements.email.value.trim().toLowerCase(),
       company_name: form.elements.company_name.value.trim(),
       website: form.elements.website.value.trim(),
+      currency: form.elements.currency.value,
       consent: true,
       page_url: window.location.href.split('#')[0].slice(0, 300),
       referrer: attr.referrer, utm_source: attr.utm_source, utm_medium: attr.utm_medium,
@@ -507,6 +509,7 @@
   function renderReport(report) {
     reportBox.textContent = '';
     var r = report.roi;
+    var cur = r.currency || 'KES';
 
     /* Head */
     var head = el('header', 'gcr-head');
@@ -536,8 +539,8 @@
     var roi = el('section', 'gcr-roi');
     roi.appendChild(el('h3', 'gcr-roi-h', 'Projected return of closing these gaps'));
     if (r.quantified_gaps) {
-      roi.appendChild(el('p', 'gcr-roi-big', kes(r.annual_low) + ' to ' + kes(r.annual_high)));
-      roi.appendChild(el('p', 'gcr-roi-sub', 'a year in time and revenue recovered. Most likely ' + kes(r.annual_expected) + '.'));
+      roi.appendChild(el('p', 'gcr-roi-big', money(r.annual_low, cur) + ' to ' + money(r.annual_high, cur)));
+      roi.appendChild(el('p', 'gcr-roi-sub', 'a year in time and revenue recovered. Most likely ' + money(r.annual_expected, cur) + '.'));
       var stats = el('div', 'gcr-stats');
       stats.appendChild(roiStat('Time back', r.hours_per_week_recovered + ' h', 'every week'));
       stats.appendChild(roiStat('First-year ROI', r.roi_pct_low + '% to ' + r.roi_pct_high + '%', 'after what it takes to do the work'));
@@ -568,7 +571,7 @@
       if (dl.children.length) card.appendChild(dl);
       var foot = el('div', 'gcr-gap-foot');
       if (g.roi && g.roi.quantified) {
-        foot.appendChild(el('strong', '', kes(g.roi.annual_low) + ' to ' + kes(g.roi.annual_high) + ' a year'));
+        foot.appendChild(el('strong', '', money(g.roi.annual_low, cur) + ' to ' + money(g.roi.annual_high, cur) + ' a year'));
         foot.appendChild(el('span', '', g.roi.hours_per_week_recovered + ' h/week back · ' + g.confidence + ' confidence'));
         if (g.basis) foot.appendChild(el('span', 'gcr-basis', 'How we got this: ' + g.basis));
       } else {
@@ -647,7 +650,7 @@
     btn.textContent = 'Preparing PDF…';
     var ready = window.SDFMGapPdf && (window.jspdf || window.jsPDF)
       ? Promise.resolve()
-      : loadScript('/js/vendor/jspdf.umd.min.js').then(function () { return loadScript('/js/gap-check-pdf.js?v=3'); });
+      : loadScript('/js/vendor/jspdf.umd.min.js').then(function () { return loadScript('/js/gap-check-pdf.js?v=4'); });
     ready.then(function () {
       return window.SDFMGapPdf.download(state.report, { name: state.name });
     }).then(function () {

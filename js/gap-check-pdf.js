@@ -33,7 +33,7 @@
       .replace(/[^\n\x20-\x7E¡-ÿ]/g, '');
   }
 
-  function kes(n) { return 'KES ' + Math.round(Number(n) || 0).toLocaleString('en-US'); }
+  function money(n, currency) { return (currency || 'KES') + ' ' + Math.round(Number(n) || 0).toLocaleString('en-US'); }
 
   function loadImage(src) {
     return new Promise(function (resolve) {
@@ -131,6 +131,7 @@
 
     // ── Projected return ─────────────────────────────────────────
     var r = report.roi;
+    var cur = r.currency || 'KES';
     heading('Projected return of closing these gaps');
     if (r.quantified_gaps) {
       ensure(40);
@@ -138,9 +139,9 @@
       font('normal', 8.5); ink([163, 157, 151]); doc.setCharSpace(0.5);
       doc.text('VALUE PER YEAR', MARGIN + 8, y + 9); doc.setCharSpace(0);
       font('bold', 19); ink(WHITE);
-      doc.text(clean(kes(r.annual_low) + '  to  ' + kes(r.annual_high)), MARGIN + 8, y + 20);
+      doc.text(clean(money(r.annual_low, cur) + '  to  ' + money(r.annual_high, cur)), MARGIN + 8, y + 20);
       font('normal', 9); ink([207, 201, 195]);
-      doc.text(clean('Most likely ' + kes(r.annual_expected)), MARGIN + 8, y + 27);
+      doc.text(clean('Most likely ' + money(r.annual_expected, cur)), MARGIN + 8, y + 27);
       var cols = [
         [String(r.hours_per_week_recovered) + ' h', 'back per week'],
         [r.roi_pct_low + '% to ' + r.roi_pct_high + '%', 'first-year ROI'],
@@ -192,7 +193,7 @@
         para(p.t, { size: 9.5, lh: 4.5, style: p.s, color: p.c, x: MARGIN + 6, w: inner, after: 1.5 });
       });
       var value = g.roi && g.roi.quantified
-        ? kes(g.roi.annual_low) + ' to ' + kes(g.roi.annual_high) + ' a year  |  ' + g.roi.hours_per_week_recovered + ' h/week back'
+        ? money(g.roi.annual_low, cur) + ' to ' + money(g.roi.annual_high, cur) + ' a year  |  ' + g.roi.hours_per_week_recovered + ' h/week back'
         : 'Not enough figures to put a value on this one';
       ensure(8);
       font('bold', 9); ink(g.roi && g.roi.quantified ? RED : MUTED);

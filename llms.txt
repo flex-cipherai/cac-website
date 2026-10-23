@@ -1,6 +1,6 @@
 # SDFM Group Limited
 
-> SDFM Group is a Nairobi-based company that helps Kenyan businesses find where AI and automation will pay off, then builds the systems. It offers a free automation scoper, industry software and custom software builds.
+> SDFM Group is a company that helps businesses find where AI and automation will pay off, then builds the systems. It offers a free automation scoper, industry software and custom software builds.
 
 ## Services
 
@@ -11,4 +11,4 @@
 ## Company
 
 - [Contact](https://sdfmgroup.com/contact): WhatsApp, phone, email and an enquiry form.
-- [Privacy policy](https://sdfmgroup.com/privacy-policy): how personal data is collected and used, under Kenya's Data Protection Act, the GDPR and the CCPA.
+- [Privacy policy](https://sdfmgroup.com/privacy-policy): how personal data is collected and used, under the GDPR, the CCPA and other applicable data protection laws.

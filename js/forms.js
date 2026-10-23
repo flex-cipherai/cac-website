@@ -19,11 +19,12 @@
 
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-  // Kenyan numbers: +254 7xx, 254 7xx, 07xx, 01xx (spaces, dashes and brackets allowed). Saved as +254...
+  // Local formats (07xx, 01xx, 254 7xx) are saved as +254...; any other number needs its country code, like +1 555 123 4567.
   function normalisePhone(raw) {
     var s = String(raw || '').replace(/[\s\-().]/g, '');
     var m = /^(?:\+254|254|0)([17]\d{8})$/.exec(s);
-    return m ? '+254' + m[1] : null;
+    if (m) return '+254' + m[1];
+    return /^\+[1-9]\d{6,14}$/.test(s) ? s : null;
   }
 
   function track(type, props) {
@@ -57,10 +58,10 @@
 
     var fields = {
       full_name: function (v) { return v.trim().length >= 2 ? '' : 'Enter your full name.'; },
-      email: function (v) { return EMAIL_RE.test(v.trim()) ? '' : 'Enter an email like name@company.co.ke'; },
+      email: function (v) { return EMAIL_RE.test(v.trim()) ? '' : 'Enter an email like name@company.com'; },
       phone: function (v) {
         if (!v.trim() && !isRequired('phone')) return '';
-        return normalisePhone(v) ? '' : 'Enter a Kenyan number like 0712 345 678 or +254 712 345 678';
+        return normalisePhone(v) ? '' : 'Enter your number with its country code, like +1 555 123 4567';
       },
       business_name: function (v) { return v.trim() || !isRequired('business_name') ? '' : 'Enter your business name.'; },
       staff_band: function (v) { return v || !isRequired('staff_band') ? '' : 'Choose how many staff you have.'; },
