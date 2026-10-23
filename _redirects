@@ -5,6 +5,7 @@
 /contact.html             /contact             301!
 /ai-gap-check.html        /ai-gap-check        301!
 /privacy-policy.html      /privacy-policy      301!
+/book.html                /book                301!
 
 # Pages retired in the four-path redesign
 /services                 /                    301!
@@ -13,8 +14,6 @@
 /how-it-works.html        /                    301!
 /faq                      /                    301!
 /faq.html                 /                    301!
-/book                     /ai-gap-check   301!
-/book.html                /ai-gap-check   301!
 
 # Retired paths: the free automation scoper replaced the guide and the paid assessment page
 /ai-gap-assessment       /ai-gap-check        301!

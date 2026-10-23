@@ -10,5 +10,6 @@
 
 ## Company
 
+- [Book a call](https://sdfmgroup.com/book): book a free 30-minute call; visitors pick a time shown in their own time zone.
 - [Contact](https://sdfmgroup.com/contact): WhatsApp, phone, email and an enquiry form.
 - [Privacy policy](https://sdfmgroup.com/privacy-policy): how personal data is collected and used, under the GDPR, the CCPA and other applicable data protection laws.
