@@ -77,6 +77,7 @@
 }
 .gc-field select:focus { outline: none; border-color: var(--red); box-shadow: 0 0 0 4px rgba(216, 42, 16, 0.16); }
 .gc-field.has-error select { border-color: var(--red); }
+.gc-opt { margin-left: 4px; font-size: 0.8125rem; font-weight: 500; color: var(--fg-muted); }
 .gc-hint-text { margin: 7px 0 0; font-size: 0.8125rem; line-height: 1.5; color: var(--fg-muted); }
 .gc-field input::placeholder { color: #8C857E; }
 .gc-field input:focus { outline: none; border-color: var(--red); box-shadow: 0 0 0 4px rgba(216, 42, 16, 0.16); }

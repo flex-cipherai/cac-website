@@ -159,6 +159,15 @@
     consent: function () { return form.elements.consent.checked ? '' : 'Tick the box to continue.'; }
   };
 
+  // "Other" reveals a text box for where they heard about us.
+  var heardOther = document.getElementById('gc-heard-other');
+  form.elements.heard_from.addEventListener('change', function () {
+    var other = form.elements.heard_from.value === 'other';
+    heardOther.hidden = !other;
+    if (other) form.elements.heard_from_other.focus({ preventScroll: true });
+    else form.elements.heard_from_other.value = '';
+  });
+
   function validateAll() {
     var first = null;
     Object.keys(validators).forEach(function (name) {
@@ -207,6 +216,8 @@
       company_name: form.elements.company_name.value.trim(),
       website: form.elements.website.value.trim(),
       currency: form.elements.currency.value,
+      heard_from: form.elements.heard_from.value,
+      heard_from_other: form.elements.heard_from.value === 'other' ? form.elements.heard_from_other.value.trim() : '',
       consent: true,
       page_url: window.location.href.split('#')[0].slice(0, 300),
       referrer: attr.referrer, utm_source: attr.utm_source, utm_medium: attr.utm_medium,

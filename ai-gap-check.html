@@ -76,7 +76,7 @@
   <script>document.documentElement.classList.add('js');</script>
   <link rel="preload" href="/assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/styles.css?v=6">
-  <link rel="stylesheet" href="/css/gap-check.css?v=4">
+  <link rel="stylesheet" href="/css/gap-check.css?v=5">
   <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
   <link rel="icon" type="image/png" href="/assets/logo.png">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -212,6 +212,14 @@
                   <select id="gc-currency" name="currency" required aria-describedby="gc-currency-hint gc-currency-err"><option value="">Choose a currency</option><option value="USD">US dollar (USD)</option><option value="EUR">Euro (EUR)</option><option value="GBP">British pound (GBP)</option><option value="KES">Kenyan shilling (KES)</option><option value="AED">UAE dirham (AED)</option><option value="CAD">Canadian dollar (CAD)</option><option value="AUD">Australian dollar (AUD)</option><option value="ZAR">South African rand (ZAR)</option><option value="INR">Indian rupee (INR)</option><option value="NGN">Nigerian naira (NGN)</option></select>
                   <p class="gc-hint-text" id="gc-currency-hint">Money figures in the conversation and your report will use this currency.</p>
                   <p class="gc-error" id="gc-currency-err" data-error-for="currency" hidden></p>
+                </div>
+                <div class="gc-field">
+                  <label for="gc-heard_from">How did you hear about us? <span class="gc-opt">(optional)</span></label>
+                  <select id="gc-heard_from" name="heard_from"><option value="">Choose one</option><option value="linkedin">LinkedIn</option><option value="instagram">Instagram</option><option value="other">Other</option></select>
+                </div>
+                <div class="gc-field" id="gc-heard-other" hidden>
+                  <label for="gc-heard_from_other">Where did you hear about us?</label>
+                  <input id="gc-heard_from_other" name="heard_from_other" type="text" maxlength="120" autocomplete="off">
                 </div>
                 <div class="gc-field full">
                   <label class="gc-consent"><input type="checkbox" name="consent" required aria-describedby="gc-consent-err"><span>I agree that SDFM Group may use my answers to build this report and contact me about it, as set out in the <a href="/privacy-policy#ai-gap-check" target="_blank" rel="noopener">privacy policy</a>.</span></label>
@@ -379,7 +387,7 @@
   </div>
 
   <script src="/js/main.js?v=5"></script>
-  <script src="/js/gap-check.js?v=5"></script>
+  <script src="/js/gap-check.js?v=6"></script>
   <script src="/js/cookie-consent.js"></script>
 </body>
 </html>
