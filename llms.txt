@@ -5,6 +5,8 @@
 ## Services
 
 - [Automation Scoper](https://sdfmgroup.com/ai-gap-check): a free, conversational assessment (about 10 minutes) that produces a gap report, a readiness score and the projected return of closing the gaps, with a PDF to keep.
+- [Sample report](https://sdfmgroup.com/sample-report): a full example scoper report for an anonymised 28-person consultancy, with gaps, readiness scores and projected return.
+- [Case examples](https://sdfmgroup.com/case-summaries): three illustrative before-and-after examples (a custom build, an industry system and a scoper-led project). Typical results, not specific clients.
 - [Industry software](https://sdfmgroup.com/industry-solutions): end-to-end, ready-made systems for specific industries, so a business does not need to hire a developer. The first systems are coming soon.
 - [Custom builds](https://sdfmgroup.com/custom-builds): custom software built around a business's own workflow, quoted per project after scoping, delivered in milestones, with training and support.
 
